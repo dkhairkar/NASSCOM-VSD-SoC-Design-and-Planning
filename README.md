@@ -61,12 +61,30 @@ All the signal is being tranfered from the pins to the interior of the chip.
 #### Introduction to RISC-V
 
 * ##### RISC-V Instruction Set Architecture(ISA)
-  a language of the computer this is how we talk to the computers.this is nothing but the description of the ISA.
+When a C program needs to pass some information to the hardware with a layout i.e. interior of the chip of the computer or device.
+C program is compiled to the Assembly language program which is then converted to machine level language (logic 1 or logic 0 or simply 0's and 1's bits). The machine level language is understood by the hardware which then executes logic 1 or logic 0 in the layout.
+  
+![C program to Layout](https://github.com/user-attachments/assets/536a2424-c1d9-40b8-a9e8-2625b965ba2d)
 
-A C program on the screen needs to be run on a layout.
+* The interface that needs to be present between RISC-V Architecture and Layout is Hardware Description language. So, we need to implement RISC-V specification using some RTL (e.g. picorv32 cpu core) to get a standard pnr i.e. RTL2GDS in the layout.
+
+![RTL to GDS](https://github.com/user-attachments/assets/e48b8655-a63f-472a-8ff3-de4d1dc1c74e)
 
 #### From Software Applications to Hardware
 
+Applications run on hardware or a chip. Applications enters into block called System Software that converts the application program into machine level language.
+
+##### Components of the system software:
+* Operating System
+The job of the OS is taking application and converting into binary 0's and 1's so it can be understood by the hardware.
+The output of the Operating system is in the form of C, C++, Java, etc.
+
+* Compiler
+This C, C++, etc language functions are taken by the compiler and converted into instructions set. The syntax of the core of these instructions are dependent on the hardware. These instruction set are saved as .exe file.
+
+* Assembler
+Once the Application is turned into instruction set, the job of the assembler is to take these instructions and convert it into its respective binary language.
+Finally the binary language fed to the hardware and performs functions.
 
 
 #### Introduction to all components of open-source digital ASIC design
