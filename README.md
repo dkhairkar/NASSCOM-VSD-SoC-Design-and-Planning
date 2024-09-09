@@ -6,7 +6,9 @@
 
 ### THEORY
 
-#### 
+#### Introduction to QFN-48 Package, chip, pads, core, die and IPs
+
+Systems in the electronic industry comprise of processing, software, storage and external interface components. In a system all of these sub components would work together to form one central processing system. At the center of this system is a chip.
 ![Arduino board](https://github.com/user-attachments/assets/9ab077bc-5821-4465-b371-93d523bd1df1)
 
 ### LAB
