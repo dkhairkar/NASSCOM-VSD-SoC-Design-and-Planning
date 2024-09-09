@@ -94,6 +94,11 @@ Finally the binary language fed to the hardware and performs functions.
 
 
 
+![RTL2GDS flow](https://github.com/user-attachments/assets/43e87a95-5b9f-4f43-8039-aab5bc5af885)
+
+
+
+
 #### Introduction to all components of open-source digital ASIC design
 
 
