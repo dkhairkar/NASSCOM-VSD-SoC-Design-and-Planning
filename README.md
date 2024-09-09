@@ -79,12 +79,19 @@ Applications run on hardware or a chip. Applications enters into block called Sy
 The job of the OS is taking application and converting into binary 0's and 1's so it can be understood by the hardware.
 The output of the Operating system is in the form of C, C++, Java, etc.
 
+![Operating System](https://github.com/user-attachments/assets/2d576d75-a1c9-4125-a720-06917e208ca4)
+
 * Compiler
 This C, C++, etc language functions are taken by the compiler and converted into instructions set. The syntax of the core of these instructions are dependent on the hardware. These instruction set are saved as .exe file.
+
+![Compiler](https://github.com/user-attachments/assets/2bd88921-ae69-4816-a733-2ca2799419d3) 
 
 * Assembler
 Once the Application is turned into instruction set, the job of the assembler is to take these instructions and convert it into its respective binary language.
 Finally the binary language fed to the hardware and performs functions.
+
+![Assembler](https://github.com/user-attachments/assets/4c6d91af-9254-471e-9f84-a727eb6b837c) 
+
 
 
 #### Introduction to all components of open-source digital ASIC design
