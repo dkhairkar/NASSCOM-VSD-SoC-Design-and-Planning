@@ -231,7 +231,7 @@ Percentage\ of\ DFF's = Flop\ Ratio * 100
 ![VirtualBox_vsdworkshop_25_09_2024_20_24_14](https://github.com/user-attachments/assets/aac53075-b63e-4761-b818-a5b41194311b)
 
 ![VirtualBox_vsdworkshop_25_09_2024_20_24_33](https://github.com/user-attachments/assets/dbd813d5-e03a-4272-9f2b-bc0eee79e567)
-*Here, Total number of Cells =14876* 
+*Here, Total number of Cells =14876 and* 
 *Number of D flop flops = 1613* 
 
 ```math
