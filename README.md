@@ -400,6 +400,8 @@ Percentage\ of\ DFF's = 0.108429685 * 100 = 10.84296854\ \%
 ## 5. Final Steps for RTL2GDS using triton Route and openSta
 
 ### Lab Implementation:
+
+
 ![VirtualBox_vsdworkshop_01_10_2024_09_34_25](https://github.com/user-attachments/assets/69b9c477-721a-4429-8708-ae8b42eca3f1)
 
 ![VirtualBox_vsdworkshop_01_10_2024_09_38_45](https://github.com/user-attachments/assets/6270cf48-2f67-48f3-b3ee-19f6a68bda68)
@@ -428,36 +430,11 @@ Percentage\ of\ DFF's = 0.108429685 * 100 = 10.84296854\ \%
 
 ![VirtualBox_vsdworkshop_01_10_2024_10_02_00](https://github.com/user-attachments/assets/32f3c93b-e533-44da-83b5-097a2c987657)
 
-![VirtualBox_vsdworkshop_01_10_2024_11_34_02](https://github.com/user-attachments/assets/6dc00975-7cb1-4f84-afd7-cb9ab3e2cd4b)
-
-![VirtualBox_vsdworkshop_01_10_2024_11_34_09](https://github.com/user-attachments/assets/e672a6f6-fa9f-4f85-a0f4-d4d2dad7ca61)
-
-
-
-
-
-
-
 ![VirtualBox_vsdworkshop_01_10_2024_10_04_35](https://github.com/user-attachments/assets/487acf6f-5c10-4dd8-b8fe-6a25f488fbfc)
-
 
 ![VirtualBox_vsdworkshop_01_10_2024_11_10_24](https://github.com/user-attachments/assets/965ea1ad-90be-4bad-a9a0-9fff1e6c8735)
 
-
 ![VirtualBox_vsdworkshop_01_10_2024_11_11_00](https://github.com/user-attachments/assets/9564b2ca-b996-421b-9e33-8e75c4e34e05)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ![VirtualBox_vsdworkshop_01_10_2024_11_13_54](https://github.com/user-attachments/assets/12bbe8ec-a937-4073-bdcb-754dcacdee83)
 
@@ -467,12 +444,9 @@ Percentage\ of\ DFF's = 0.108429685 * 100 = 10.84296854\ \%
 
 ![VirtualBox_vsdworkshop_01_10_2024_11_18_15](https://github.com/user-attachments/assets/eb26b785-7abb-48f3-b9ff-0d1497151205)
 
+![VirtualBox_vsdworkshop_01_10_2024_11_34_02](https://github.com/user-attachments/assets/6dc00975-7cb1-4f84-afd7-cb9ab3e2cd4b)
 
-
-
-
-
-
+![VirtualBox_vsdworkshop_01_10_2024_11_34_09](https://github.com/user-attachments/assets/e672a6f6-fa9f-4f85-a0f4-d4d2dad7ca61)
 
 
 
