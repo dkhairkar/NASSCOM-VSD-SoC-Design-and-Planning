@@ -576,23 +576,20 @@ Incorrectly implemented poly.9 rule with no drc violation:
 
 ![VirtualBox_vsdworkshop_30_09_2024_01_26_15](https://github.com/user-attachments/assets/10012b8c-fee9-4e01-9902-ef09f6f3c03c)
 
+**Insert new commands in sky130A.tech to update drc**
+
 ![VirtualBox_vsdworkshop_30_09_2024_01_28_48](https://github.com/user-attachments/assets/00e53f5a-26fc-4681-9a81-8bd3d7fdf129)
 
 ![VirtualBox_vsdworkshop_30_09_2024_01_54_03](https://github.com/user-attachments/assets/f6143250-fc2d-4742-8e7d-aff2f0a22456)
 
-**Insert new commands in sky130A.tech to update drc**
-
 ![VirtualBox_vsdworkshop_30_09_2024_01_57_20](https://github.com/user-attachments/assets/423602f4-79b5-4275-bb47-809d9e16ebf4)
-
-![VirtualBox_vsdworkshop_30_09_2024_01_58_11](https://github.com/user-attachments/assets/63dcd3a9-f540-4e10-ab01-03bd982d5afd)
-
-![VirtualBox_vsdworkshop_30_09_2024_01_58_42](https://github.com/user-attachments/assets/90d3dde2-91ea-4f26-9726-0bfd70565d10)
 
 **Loading updated tech file**
 ```tcl
 tech load sky130A.tech
 ```
-![VirtualBox_vsdworkshop_30_09_2024_02_36_33](https://github.com/user-attachments/assets/0bc59b3f-6538-4371-b393-54abbcfa9ba5)
+
+![VirtualBox_vsdworkshop_30_09_2024_01_58_11](https://github.com/user-attachments/assets/63dcd3a9-f540-4e10-ab01-03bd982d5afd)
 
 **re-run drc check to see updated drc errors**
 ```tcl
@@ -604,14 +601,15 @@ drc check
 drc why
 ```
 
-![VirtualBox_vsdworkshop_30_09_2024_02_47_47](https://github.com/user-attachments/assets/5925f375-54ed-47a6-b82b-8a29ba0f3274)
+![VirtualBox_vsdworkshop_30_09_2024_01_58_42](https://github.com/user-attachments/assets/90d3dde2-91ea-4f26-9726-0bfd70565d10)
 
-![VirtualBox_vsdworkshop_30_09_2024_02_48_47](https://github.com/user-attachments/assets/d28498e6-be28-4899-9bee-4c364ca8aedc)
+![VirtualBox_vsdworkshop_30_09_2024_02_36_33](https://github.com/user-attachments/assets/0bc59b3f-6538-4371-b393-54abbcfa9ba5)
 
 **Incorrectly implemented difftap.2 simple rule correction**
 
 **Insert new commands in sky130A.tech to update drc**
-![VirtualBox_vsdworkshop_30_09_2024_02_49_16](https://github.com/user-attachments/assets/f4b026b4-dcdf-45a3-abde-9c38dd8f0212)
+
+![VirtualBox_vsdworkshop_30_09_2024_02_47_47](https://github.com/user-attachments/assets/5925f375-54ed-47a6-b82b-8a29ba0f3274)
 
 **Commands to run in tkcon window**
 
@@ -629,19 +627,22 @@ drc check
 ```tcl
 drc why
 ```
+
+![VirtualBox_vsdworkshop_30_09_2024_02_48_47](https://github.com/user-attachments/assets/d28498e6-be28-4899-9bee-4c364ca8aedc)
+
+![VirtualBox_vsdworkshop_30_09_2024_02_49_16](https://github.com/user-attachments/assets/f4b026b4-dcdf-45a3-abde-9c38dd8f0212)
+
+**Incorrectly implemented nwell.4 complex rule correction**
+
+
+**Insert new commands in sky130A.tech to update drc**
 
 ![VirtualBox_vsdworkshop_30_09_2024_02_50_12](https://github.com/user-attachments/assets/32ec10bb-c196-4ce3-bad8-97a973663edb)
 
 ![VirtualBox_vsdworkshop_30_09_2024_02_57_11](https://github.com/user-attachments/assets/f68eafed-db6c-4fe2-9c83-528052137ba6)
 
-
-**Incorrectly implemented nwell.4 complex rule correction**
-
 ![VirtualBox_vsdworkshop_30_09_2024_03_01_37](https://github.com/user-attachments/assets/f7f97215-5553-4930-bed8-366007cc16dc)
-**Insert new commands in sky130A.tech to update drc**
-![VirtualBox_vsdworkshop_30_09_2024_03_03_27](https://github.com/user-attachments/assets/d9a9372e-28f5-4cd4-aae7-2cc78b1984fd)
 
-![VirtualBox_vsdworkshop_30_09_2024_03_05_18](https://github.com/user-attachments/assets/4433b434-b6e9-4993-b148-da9ffb05240f)
 **Commands to run in tkcon window**
 
 **Loading updated tech file**
@@ -658,7 +659,9 @@ drc check
 ```tcl
 drc why
 ```
+![VirtualBox_vsdworkshop_30_09_2024_03_03_27](https://github.com/user-attachments/assets/d9a9372e-28f5-4cd4-aae7-2cc78b1984fd)
 
+![VirtualBox_vsdworkshop_30_09_2024_03_05_18](https://github.com/user-attachments/assets/4433b434-b6e9-4993-b148-da9ffb05240f)
 ## 4. Pre-layout Timing Analysis and Importance of Good Clock Tree
 
 ### Lab Implementation
