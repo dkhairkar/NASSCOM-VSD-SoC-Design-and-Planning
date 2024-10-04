@@ -177,11 +177,42 @@ Finally the binary language fed to the hardware and performs functions.
 ## 1. Inception of open-source EDA, OpenLANE and Sky130 PDK
 
 ### Lab Implemention
+**Objective :** To run Opnelane flow using 'picorv32a' design and calculate the flop ratio.
 
+**Invoking the Openlane flow using picorv32a :**
+
+**Changing directory to Openlane**
+```terminal
+cd Desktop/work/tools/openlane_working_dir/openlane
+```
+**Alias docker**
+```terminal
+docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21
+```
+```terminal
+docker
+```
+**Invoke the OpenLane flow in the interactive mode**
+```bash
+./flow.tcl -interactive
+```
+
+**Now that we have invoked the OpenLANE flow, we require the package**
+```tcl
+package require openlane 0.9
+```
+
+**Now we need to prep the the design, in this case we are using 'picorv32a' design**
+```tcl
+run synthesis
+```
+
+Screenshots of the OpenLane flow:
 ![VirtualBox_vsdworkshop_25_09_2024_20_09_49](https://github.com/user-attachments/assets/968adc6c-0d4f-4d73-be14-b30e82aca511)
 
 ![VirtualBox_vsdworkshop_25_09_2024_20_10_17](https://github.com/user-attachments/assets/b8c44f2b-6fc5-400e-af01-eb850594124f)
 
+**Calculating the flop ratio:**
 
 ```math
 Flop\ Ratio = \frac{Number\ of\ D\ Flip\ Flops}{Total\ Number\ of\ Cells}
@@ -189,11 +220,12 @@ Flop\ Ratio = \frac{Number\ of\ D\ Flip\ Flops}{Total\ Number\ of\ Cells}
 ```math
 Percentage\ of\ DFF's = Flop\ Ratio * 100
 ```
-
+**Screenshot of both Number of D flip flop and Total number of Cells**
 ![VirtualBox_vsdworkshop_25_09_2024_20_24_14](https://github.com/user-attachments/assets/aac53075-b63e-4761-b818-a5b41194311b)
 
 ![VirtualBox_vsdworkshop_25_09_2024_20_24_33](https://github.com/user-attachments/assets/dbd813d5-e03a-4272-9f2b-bc0eee79e567)
-
+*Here, Total number of Cells =*
+*Number of D flop flops =*
 
 ```math
 Flop\ Ratio = \frac{1613}{14876} = 0.108429685
@@ -201,12 +233,26 @@ Flop\ Ratio = \frac{1613}{14876} = 0.108429685
 ```math
 Percentage\ of\ DFF's = 0.108429685 * 100 = 10.84296854\ \%
 ```
+
+**Exiting the OpenLANE flow**
+```tcl
+exit
+```
+
+**Exiting the docker**
+```tcl
+exit
+```
+
 ![VirtualBox_vsdworkshop_25_09_2024_20_24_51](https://github.com/user-attachments/assets/1e8c2f8e-41a6-4d4e-b4ab-fc3b4b57c3de)
+
 
 
 ## 2. Good floorplan VS Bad floorplan and Introduction to library cells
 
 ### Lab Implementation
+
+
 
 ![VirtualBox_vsdworkshop_26_09_2024_18_25_41](https://github.com/user-attachments/assets/b62583f0-59bd-4be8-ab81-faf08f69180a)
 
