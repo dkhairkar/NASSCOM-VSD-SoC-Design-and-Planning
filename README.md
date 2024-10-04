@@ -2,9 +2,9 @@
 
 >2 Week Workshop on Digital VLSI SoC Design and Planning organised by VSD in collaboration with NASSSCOM
 
-## DAY 1 - Inception of open-source EDA, OpenLANE and Sky130 PDK
-
-### THEORY
+## THEORY
+<details>
+<summary>CLick to expand</summary>
 
 #### Introduction to QFN-48 Package, chip, pads, core, die and IPs
 
@@ -110,30 +110,6 @@ Finally the binary language fed to the hardware and performs functions.
 
 #### Introduction to OpenLane detailed ASIC design flow
 
-### LAB
-
-
-
-```math
-Flop\ Ratio = \frac{Number\ of\ D\ Flip\ Flops}{Total\ Number\ of\ Cells}
-```
-```math
-Percentage\ of\ DFF's = Flop\ Ratio * 100
-```
-
-
-
-
-```math
-Flop\ Ratio = \frac{1613}{14876} = 0.108429685
-```
-```math
-Percentage\ of\ DFF's = 0.108429685 * 100 = 10.84296854\ \%
-```
-
-## Day 2 - Good floorplan VS Bad floorplan and Introduction to library cells
-
-### THEORY
 
 #### Chip Floor Planning considerations
 
@@ -196,32 +172,87 @@ Percentage\ of\ DFF's = 0.108429685 * 100 = 10.84296854\ \%
 ##### Propogation delay and transition time
 
 
+</details>
 
-### LAB
+## 1. Inception of open-source EDA, OpenLANE and Sky130 PDK
 
-## Day 3 - Design library cell using Magic Layout and Ngspice characterization
+### Lab Implemention
 
-### THEORY
+![VirtualBox_vsdworkshop_25_09_2024_20_09_49](https://github.com/user-attachments/assets/968adc6c-0d4f-4d73-be14-b30e82aca511)
 
-
-
-### LAB
-
-## Day 4 - Pre-layout Timing Analysis and Importance of Good Clock Tree
-
-### THEORY
+![VirtualBox_vsdworkshop_25_09_2024_20_10_17](https://github.com/user-attachments/assets/b8c44f2b-6fc5-400e-af01-eb850594124f)
 
 
-### LAB
+```math
+Flop\ Ratio = \frac{Number\ of\ D\ Flip\ Flops}{Total\ Number\ of\ Cells}
+```
+```math
+Percentage\ of\ DFF's = Flop\ Ratio * 100
+```
+
+![VirtualBox_vsdworkshop_25_09_2024_20_24_14](https://github.com/user-attachments/assets/aac53075-b63e-4761-b818-a5b41194311b)
+
+![VirtualBox_vsdworkshop_25_09_2024_20_24_33](https://github.com/user-attachments/assets/dbd813d5-e03a-4272-9f2b-bc0eee79e567)
 
 
-## Day 5 - Final Steps for RTL2GDS using triton Route and openSta
+```math
+Flop\ Ratio = \frac{1613}{14876} = 0.108429685
+```
+```math
+Percentage\ of\ DFF's = 0.108429685 * 100 = 10.84296854\ \%
+```
+![VirtualBox_vsdworkshop_25_09_2024_20_24_51](https://github.com/user-attachments/assets/1e8c2f8e-41a6-4d4e-b4ab-fc3b4b57c3de)
 
-### THEORY
+
+## 2. Good floorplan VS Bad floorplan and Introduction to library cells
+
+### Lab Implementation
+
+![VirtualBox_vsdworkshop_26_09_2024_18_25_41](https://github.com/user-attachments/assets/b62583f0-59bd-4be8-ab81-faf08f69180a)
+
+![VirtualBox_vsdworkshop_26_09_2024_18_26_11](https://github.com/user-attachments/assets/9a9de95a-87d0-4b62-a388-bae075dd6e16)
+
+![VirtualBox_vsdworkshop_26_09_2024_18_28_45](https://github.com/user-attachments/assets/d3edd32a-09db-4767-9828-0d976ff25dcd)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_36_12](https://github.com/user-attachments/assets/4534b0b4-3387-44e9-953a-52a5cb4c60b2)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_36_28](https://github.com/user-attachments/assets/ddb24e45-cefc-42d1-95db-1c329baf8224)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_39_14](https://github.com/user-attachments/assets/a6d8f3ed-cc42-4ab2-8fe8-13202ff9fb3b)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_39_58](https://github.com/user-attachments/assets/5abca351-9d75-4178-ab63-1fad4e052f77)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_43_14](https://github.com/user-attachments/assets/ab76cba8-28e1-4db3-8907-07645d0c3409)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_43_30](https://github.com/user-attachments/assets/e9eebf43-7cb0-410c-b363-12951993cd96)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_44_12](https://github.com/user-attachments/assets/353b3986-4779-4419-b229-469bf3bfe313)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_46_11](https://github.com/user-attachments/assets/ac9489e2-485d-4e1e-9f50-37011f8dca44)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_48_23](https://github.com/user-attachments/assets/33901a59-4b6f-40ac-90a7-1d3df2a8a7b6)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_51_12](https://github.com/user-attachments/assets/1ec2db04-c9b4-41ef-9b13-e6ab7f17803e)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_51_26](https://github.com/user-attachments/assets/10583d58-d45a-4c08-86cc-a3900121a8d8)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_52_40](https://github.com/user-attachments/assets/0ea4def2-0dd1-4811-aeb9-265625d5398f)
+
+![VirtualBox_vsdworkshop_26_09_2024_23_54_32](https://github.com/user-attachments/assets/90ed44f7-5851-471f-98f9-23ff3a3de3fd)
 
 
+## 3. Design library cell using Magic Layout and Ngspice characterization
 
-#### LAB
+### Lab Implementation
+
+## 4. Pre-layout Timing Analysis and Importance of Good Clock Tree
+
+### Lab Implementation
+
+
+## 5. Final Steps for RTL2GDS using triton Route and openSta
+
+### Lab Implementation:
 
 
 
