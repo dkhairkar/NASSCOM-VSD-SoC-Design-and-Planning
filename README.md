@@ -229,8 +229,8 @@ Percentage\ of\ DFF's = Flop\ Ratio * 100
 ![VirtualBox_vsdworkshop_25_09_2024_20_24_14](https://github.com/user-attachments/assets/aac53075-b63e-4761-b818-a5b41194311b)
 
 ![VirtualBox_vsdworkshop_25_09_2024_20_24_33](https://github.com/user-attachments/assets/dbd813d5-e03a-4272-9f2b-bc0eee79e567)
-*Here, Total number of Cells =*
-*Number of D flop flops =*
+*Here, Total number of Cells =14876* 
+*Number of D flop flops = 1613* 
 
 ```math
 Flop\ Ratio = \frac{1613}{14876} = 0.108429685
@@ -366,15 +366,47 @@ exit
 
 ### Lab Implementation
 
+**Objective :** To run the following task:
+1. Clone and Open the custom inverter layout in magic tool.
+2. Spice Extraction on the inverter.
+3. Post layout simulation in ngspice.
+4. Fixing the incorrect magic tech files.
+
+**Changing directory to Openlane**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane
+```
+
+**Clone the repository which contains the custom inverter**
+```bash
+https://github.com/nickson-jose/vsdstdcelldesign.git
+```
 ![VirtualBox_vsdworkshop_27_09_2024_00_01_11](https://github.com/user-attachments/assets/60472270-2ace-463d-8158-e5e68ec39d3a)
 
 ![VirtualBox_vsdworkshop_29_09_2024_00_13_10](https://github.com/user-attachments/assets/7c7cf9cf-3506-4fb7-9e0e-e610de991dea)
 
+**Change the directory**
+```bash
+cd vsdstdcelldesign
+```
+**Copy magic tech file to vsdstdcelldesign directory**
+```bash
+cp sky130A.tech /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign
+```
+
 ![VirtualBox_vsdworkshop_29_09_2024_00_19_42](https://github.com/user-attachments/assets/08681fb0-6140-4f1e-9ad8-ee17ec3746b9)
+
+**Command to Open inverter in Magic tool**
+```bash
+magic -T sky130A.tech sky130_inv.mag &
+```
 
 ![VirtualBox_vsdworkshop_29_09_2024_00_24_09](https://github.com/user-attachments/assets/366578ea-a599-48f5-bb2c-5fd072e51591)
 
+Screenshots of inverter layout in Magic tool:
+
 ![VirtualBox_vsdworkshop_29_09_2024_00_28_15](https://github.com/user-attachments/assets/dfe6f989-97de-4a8e-805a-dc78726709e0)
+NMOS and PMOS:
 
 ![VirtualBox_vsdworkshop_29_09_2024_00_28_45](https://github.com/user-attachments/assets/46781375-b1a9-4ad5-aab1-a0b42db21f14)
 
@@ -382,17 +414,42 @@ exit
 
 ![VirtualBox_vsdworkshop_29_09_2024_00_29_44](https://github.com/user-attachments/assets/35a1bc6a-ceea-4e5a-a989-dd12c9b91dc6)
 
+Y connected to PMOS and NMOS drain:
 ![VirtualBox_vsdworkshop_29_09_2024_00_30_50](https://github.com/user-attachments/assets/8650761a-984e-479a-9e77-ed110b825ca7)
 
+PMOS connected to VPWR:
 ![VirtualBox_vsdworkshop_29_09_2024_00_32_11](https://github.com/user-attachments/assets/ceed3995-b4ec-41fd-9f05-54f4669556e1)
 
+NMOS connected to VGND:
 ![VirtualBox_vsdworkshop_29_09_2024_00_32_29](https://github.com/user-attachments/assets/c83d6b80-9081-4678-aef4-439910f4bd0c)
+
+**Commands to Spice extraction of the inverter in tcl window**
+
+Extracting spice to .ext 
+```tcl
+extract all
+```
+
+parasitic extraction
+```tcl
+ext2spice cthresh 0 rthresh 0
+```
+
+Convert ext to spice:
+```tcl
+ext2spice
+```
 
 ![VirtualBox_vsdworkshop_29_09_2024_20_37_38](https://github.com/user-attachments/assets/eb826f23-9fe5-4acf-95c5-35b88285708e)
 
+Checking for .ext and .spice in the directory:
 ![VirtualBox_vsdworkshop_29_09_2024_20_37_53](https://github.com/user-attachments/assets/e50bbbbc-0f5c-48d5-a974-7e1daa7aa190)
 
+Measure unit distance in grid:
+
 ![VirtualBox_vsdworkshop_29_09_2024_21_06_09](https://github.com/user-attachments/assets/24136f4d-10a5-4488-a2ce-98ff9909a882)
+
+Edit the .spice file for ngspice simulation:
 
 ![VirtualBox_vsdworkshop_29_09_2024_20_38_19](https://github.com/user-attachments/assets/a3e5076a-53ab-4249-b539-05bb129b7b5f)
 
