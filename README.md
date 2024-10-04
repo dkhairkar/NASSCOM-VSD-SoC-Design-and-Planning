@@ -204,7 +204,12 @@ package require openlane 0.9
 
 **Now we need to prep the the design, in this case we are using 'picorv32a' design**
 ```tcl
-run synthesis
+prep -design picorv32a
+```
+
+**Running Synthesis**
+```tcl
+run_synthesis
 ```
 
 Screenshots of the OpenLane flow:
@@ -240,7 +245,7 @@ exit
 ```
 
 **Exiting the docker**
-```tcl
+```bash
 exit
 ```
 
@@ -252,18 +257,66 @@ exit
 
 ### Lab Implementation
 
+**Objective :** To run the OpenLANE flow using 'picorv32a' design, calculate the die area and generate floorplan def and placement def in magic tool.
 
+**Invoking the Openlane flow using picorv32a :**
 
+**Changing directory to Openlane**
+```terminal
+cd Desktop/work/tools/openlane_working_dir/openlane
+```
+**Alias docker**
+```terminal
+docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21
+```
+```terminal
+docker
+```
+**Invoke the OpenLane flow in the interactive mode**
+```bash
+./flow.tcl -interactive
+```
+
+**Now that we have invoked the OpenLANE flow, we require the package**
+```tcl
+package require openlane 0.9
+```
+
+**Now we need to prep the the design, in this case we are using 'picorv32a' design**
+```tcl
+prep -design picorv32a
+```
+
+**Running synthesis**
+```tcl
+run_synthesis
+```
+
+**Running floorplan**
+```tcl
+run_floorplan
+```
+Screenshots of OpenLANE flow:
 ![VirtualBox_vsdworkshop_26_09_2024_18_25_41](https://github.com/user-attachments/assets/b62583f0-59bd-4be8-ab81-faf08f69180a)
 
 ![VirtualBox_vsdworkshop_26_09_2024_18_26_11](https://github.com/user-attachments/assets/9a9de95a-87d0-4b62-a388-bae075dd6e16)
 
 ![VirtualBox_vsdworkshop_26_09_2024_18_28_45](https://github.com/user-attachments/assets/d3edd32a-09db-4767-9828-0d976ff25dcd)
 
+**Change to the directory containing floorplan def path**
+```temrminal
+ cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-09_12-55/results/floorplan/
+```
+
+**Command for loading the floorplan def in Magic tool**
+```terminal
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
+```
 ![VirtualBox_vsdworkshop_26_09_2024_23_36_12](https://github.com/user-attachments/assets/4534b0b4-3387-44e9-953a-52a5cb4c60b2)
 
 ![VirtualBox_vsdworkshop_26_09_2024_23_36_28](https://github.com/user-attachments/assets/ddb24e45-cefc-42d1-95db-1c329baf8224)
 
+Screenshots of the floorplan def in Magic tool:
 ![VirtualBox_vsdworkshop_26_09_2024_23_39_14](https://github.com/user-attachments/assets/a6d8f3ed-cc42-4ab2-8fe8-13202ff9fb3b)
 
 ![VirtualBox_vsdworkshop_26_09_2024_23_39_58](https://github.com/user-attachments/assets/5abca351-9d75-4178-ab63-1fad4e052f77)
@@ -274,18 +327,40 @@ exit
 
 ![VirtualBox_vsdworkshop_26_09_2024_23_44_12](https://github.com/user-attachments/assets/353b3986-4779-4419-b229-469bf3bfe313)
 
+**Running Placement**
+```tcl
+run_placement
+```
 ![VirtualBox_vsdworkshop_26_09_2024_23_46_11](https://github.com/user-attachments/assets/ac9489e2-485d-4e1e-9f50-37011f8dca44)
 
 ![VirtualBox_vsdworkshop_26_09_2024_23_48_23](https://github.com/user-attachments/assets/33901a59-4b6f-40ac-90a7-1d3df2a8a7b6)
+**Change the directory to placement def path**
+```terminal
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-09_12-55/results/placement/
+```
 
+**Command for loading the placement def in Magic tool**
+```terminal
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
 ![VirtualBox_vsdworkshop_26_09_2024_23_51_12](https://github.com/user-attachments/assets/1ec2db04-c9b4-41ef-9b13-e6ab7f17803e)
 
+Screenshots of the placement def in Magic tool:
 ![VirtualBox_vsdworkshop_26_09_2024_23_51_26](https://github.com/user-attachments/assets/10583d58-d45a-4c08-86cc-a3900121a8d8)
 
 ![VirtualBox_vsdworkshop_26_09_2024_23_52_40](https://github.com/user-attachments/assets/0ea4def2-0dd1-4811-aeb9-265625d5398f)
 
 ![VirtualBox_vsdworkshop_26_09_2024_23_54_32](https://github.com/user-attachments/assets/90ed44f7-5851-471f-98f9-23ff3a3de3fd)
 
+**Exiting the OpenLANE flow**
+```tcl
+exit
+```
+
+**Exiting the docker**
+```bash
+exit
+```
 
 ## 3. Design library cell using Magic Layout and Ngspice characterization
 
