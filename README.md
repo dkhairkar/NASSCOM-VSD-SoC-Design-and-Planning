@@ -453,8 +453,18 @@ Edit the .spice file for ngspice simulation:
 
 ![VirtualBox_vsdworkshop_29_09_2024_20_38_19](https://github.com/user-attachments/assets/a3e5076a-53ab-4249-b539-05bb129b7b5f)
 
+Edited .spice file:
 ![VirtualBox_vsdworkshop_29_09_2024_23_21_56](https://github.com/user-attachments/assets/ee1f5f9e-0f92-4e4f-8b6a-bb3b0285a2bf)
 
+**loading spice file for ngspice simulation**
+```bash
+ngspice sky130_inv.spice
+```
+
+**Once the ngspice has been loaded, we need to plot**
+```
+plot y vs a
+```
 ![VirtualBox_vsdworkshop_29_09_2024_23_22_18](https://github.com/user-attachments/assets/a3815033-be2b-482d-9a2d-c7a3a32ddda3)
 
 ![VirtualBox_vsdworkshop_29_09_2024_23_27_09](https://github.com/user-attachments/assets/3e07b672-1f18-4dbe-926e-1377507f27fe)
@@ -467,16 +477,52 @@ Edit the .spice file for ngspice simulation:
 
 ![VirtualBox_vsdworkshop_29_09_2024_23_32_30](https://github.com/user-attachments/assets/701829c7-6ffa-47b2-9e0d-f9c869127ba6)
 
+**Change to home directory**
+```bash
+cd
+```
+
+**Command to download the files**
+```bash
+wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
+```
+
+# command to extract the files
+```bash
+tar xfz drc_tests.tgz
+```
+
+# Change into the lab directory
+```bash
+cd drc_tests
+```
 ![VirtualBox_vsdworkshop_30_09_2024_00_56_57](https://github.com/user-attachments/assets/1a361264-b23a-4429-85eb-6d2055201205)
 
+# List all files and directories present in the current directory
+```bash
+ls -al
+```
+
+**To view .magicrc file**
+```bash
+gvim .magicrc
+```
 ![VirtualBox_vsdworkshop_30_09_2024_00_57_45](https://github.com/user-attachments/assets/c81a23bd-0dfe-451a-acd3-9342388a71ed)
 
+Screenshot of .magicrc file:
 ![VirtualBox_vsdworkshop_30_09_2024_00_58_01](https://github.com/user-attachments/assets/7e8c8234-500b-49ad-a90f-8fec9c707929)
+
+**Command to open magic tool**
+```bash
+magic -d XR &
+```
 
 ![VirtualBox_vsdworkshop_30_09_2024_01_04_55](https://github.com/user-attachments/assets/af05e829-181b-43e1-823a-ffb33465e2fa)
 
+Screenshot of the magic tool:
 ![VirtualBox_vsdworkshop_30_09_2024_01_09_15](https://github.com/user-attachments/assets/c3165142-35c0-4908-93cf-3715b24b25de)
 
+Opening the file in magic (from the directory):
 ![VirtualBox_vsdworkshop_30_09_2024_01_10_05](https://github.com/user-attachments/assets/7b3a5734-04d3-4bc0-988e-8e5e4c142d85)
 
 ![VirtualBox_vsdworkshop_30_09_2024_01_10_14](https://github.com/user-attachments/assets/95df352f-0755-4532-99f9-49d541d4ce1f)
