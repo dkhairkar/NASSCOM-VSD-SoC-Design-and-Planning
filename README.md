@@ -188,8 +188,9 @@ cd Desktop/work/tools/openlane_working_dir/openlane
 
 **Alias docker**
 ```bash
-docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21
+alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
 ```
+Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command.
 ```bash
 docker
 ```
@@ -270,8 +271,9 @@ cd Desktop/work/tools/openlane_working_dir/openlane
 
 **Alias docker**
 ```bash
-docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21
+alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
 ```
+Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command.
 ```bash
 docker
 ```
@@ -658,37 +660,147 @@ Opening the file in magic (from the directory):
 
 **Objective :** 
 
+
+**Invoking the Openlane flow using picorv32a :**
+
+**Changing directory to Openlane**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane
+```
+
+**Alias docker**
+```bash
+alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
+```
+Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command.
+```bash
+docker
+```
+
+**Invoke the OpenLane flow in the interactive mode**
+```bash
+./flow.tcl -interactive
+```
+
+**Now that we have invoked the OpenLANE flow, we require the package**
+```tcl
+package require openlane 0.9
+```
+
+**Now we need to prep the the design, in this case we are using 'picorv32a' design**
+```tcl
+prep -design picorv32a
+```
 ![VirtualBox_vsdworkshop_01_10_2024_09_34_25](https://github.com/user-attachments/assets/69b9c477-721a-4429-8708-ae8b42eca3f1)
 
+**Addiitional commands to include newly added lef to openlane flow merged.lef**
+```tcl
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+```
+
+**Set new value for SYNTH_STRATEGY**
+```tcl
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+```
+
+**Command to set new value for SYNTH_SIZING**
+```tcl
+set ::env(SYNTH_SIZING) 1
+```
+
+**Running synthesis**
+```tcl
+run_synthesis
+```
 ![VirtualBox_vsdworkshop_01_10_2024_09_38_45](https://github.com/user-attachments/assets/6270cf48-2f67-48f3-b3ee-19f6a68bda68)
+
+**Following commands are alltogather sourced in "run_floorplan" command**
+```tcl
+init_floorplan
+place_io
+tap_decap_or
+```
 
 ![VirtualBox_vsdworkshop_01_10_2024_09_41_44](https://github.com/user-attachments/assets/88fe5e37-2560-49fb-a768-51c31cb2ae79)
 
 ![VirtualBox_vsdworkshop_01_10_2024_09_42_38](https://github.com/user-attachments/assets/92e3d2c6-21ca-41dc-9925-e08b5be41c62)
 
+**Run placement**
+```tcl
+run_placement
+
 ![VirtualBox_vsdworkshop_01_10_2024_09_44_07](https://github.com/user-attachments/assets/9c1f26aa-aec2-4724-99b9-1a5570d0a562)
 
-![VirtualBox_vsdworkshop_01_10_2024_09_45_48](https://github.com/user-attachments/assets/500ae93b-2e27-450c-9a04-3679f969930e)
+**Incase getting error**
+```tcl
+unset ::env(LIB_CTS)
+```
+
+**Run Clock Tree Synthesis**
+```tcl
+run_cts
+```
 
 ![VirtualBox_vsdworkshop_01_10_2024_09_51_10](https://github.com/user-attachments/assets/46be6f9c-3d56-4463-ad10-92731dcf969b)
+
+**Power distribution network**
+```tcl
+gen_pdn
+```
 
 ![VirtualBox_vsdworkshop_01_10_2024_09_51_33](https://github.com/user-attachments/assets/4c5767d8-8c53-4948-bf42-f899cea9dae7)
 
 ![VirtualBox_vsdworkshop_01_10_2024_09_52_00](https://github.com/user-attachments/assets/a2468075-93e0-4c27-82fc-38d834f0df0e)
 
+**Change the directory to generated PDN def path**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/01-10_04-04/tmp/floorplan/
+```
+
+**Load PDN def in magic tool**
+```bash
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read 14-pdn.def &
+```
+
 ![VirtualBox_vsdworkshop_01_10_2024_09_57_13](https://github.com/user-attachments/assets/b7cccfd1-572f-47ed-a079-04d05e2eb33f)
 
+Screenshots of PDN def in magic tool:
 ![VirtualBox_vsdworkshop_01_10_2024_09_57_31](https://github.com/user-attachments/assets/f127df83-88fd-479f-904f-0720a64a9f8c)
 
 ![VirtualBox_vsdworkshop_01_10_2024_09_57_59](https://github.com/user-attachments/assets/f4e33d65-db4e-4396-b28f-342ec22322ec)
 
 ![VirtualBox_vsdworkshop_01_10_2024_10_00_54](https://github.com/user-attachments/assets/f5a3574e-1d1a-4acd-8a3c-7e18b9f3d435)
 
+**Check value of 'CURRENT_DEF**
+```tcl
+echo $::env(CURRENT_DEF)
+```
+
+**Check value of 'ROUTING_STRATEGY**
+```tcl
+echo $::env(ROUTING_STRATEGY)
+```
+
+**Run Routing**
+```tcl
+run_routing
+```
+
 ![VirtualBox_vsdworkshop_01_10_2024_10_02_00](https://github.com/user-attachments/assets/32f3c93b-e533-44da-83b5-097a2c987657)
 
 ![VirtualBox_vsdworkshop_01_10_2024_10_04_35](https://github.com/user-attachments/assets/487acf6f-5c10-4dd8-b8fe-6a25f488fbfc)
 
 ![VirtualBox_vsdworkshop_01_10_2024_11_10_24](https://github.com/user-attachments/assets/965ea1ad-90be-4bad-a9a0-9fff1e6c8735)
+
+**Change the directory to routed def path**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/01-10_04-04/results/routing/
+```
+**Load the routed def in magic tool**
+```bash
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.def &
+```
 
 ![VirtualBox_vsdworkshop_01_10_2024_11_11_00](https://github.com/user-attachments/assets/9564b2ca-b996-421b-9e33-8e75c4e34e05)
 
@@ -699,7 +811,7 @@ Opening the file in magic (from the directory):
 ![VirtualBox_vsdworkshop_01_10_2024_11_15_43](https://github.com/user-attachments/assets/40f0a6b2-4ad4-4e0f-81d3-a8dbc6c37b3d)
 
 ![VirtualBox_vsdworkshop_01_10_2024_11_18_15](https://github.com/user-attachments/assets/eb26b785-7abb-48f3-b9ff-0d1497151205)
-
+**Fast Route guide :**
 ![VirtualBox_vsdworkshop_01_10_2024_11_34_02](https://github.com/user-attachments/assets/6dc00975-7cb1-4f84-afd7-cb9ab3e2cd4b)
 
 ![VirtualBox_vsdworkshop_01_10_2024_11_34_09](https://github.com/user-attachments/assets/e672a6f6-fa9f-4f85-a0f4-d4d2dad7ca61)
