@@ -302,6 +302,7 @@ run_synthesis
 ```tcl
 run_floorplan
 ```
+
 Screenshots of OpenLANE flow:
 ![VirtualBox_vsdworkshop_26_09_2024_18_25_41](https://github.com/user-attachments/assets/b62583f0-59bd-4be8-ab81-faf08f69180a)
 
@@ -666,17 +667,60 @@ drc why
 
 ### Lab Implementation
 
+**Objective :** To run the following task
+
+
+**Change the directory to vsdstdcelldesign**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane/vsdstdcelldesign
+```
+
+**Open the inverter layout in magic tool**
+```bash
+magic -T sky130A.tech sky130_inv.mag &
+```
+
+**Change the directory to tracks.info path**
+```bash
+cd Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd
+```
+
 ![VirtualBox_vsdworkshop_30_09_2024_12_15_15](https://github.com/user-attachments/assets/7577856d-e622-4dc4-bd71-ddee3d79f987)
 
 ![VirtualBox_vsdworkshop_30_09_2024_12_15_22](https://github.com/user-attachments/assets/25f2388e-3907-4fc6-b1f8-756bd7f03a35)
+
+**syntax for grid command**
+```tcl
+help grid
+```
 
 ![VirtualBox_vsdworkshop_30_09_2024_12_17_08](https://github.com/user-attachments/assets/b36e36f0-29da-48f2-bba2-8f1ca89b32a6)
 
 ![VirtualBox_vsdworkshop_30_09_2024_12_17_59](https://github.com/user-attachments/assets/59a6d784-a039-4339-8c3a-d29b6fa155fd)
 
+**Set grid values according to track.info**
+```tcl
+grid 0.46um 0.34um 0.23um 0.17um
+```
+
+**Command to save .mag file**
+```tcl
+save sky130_vsdinv.mag
+```
+
 ![VirtualBox_vsdworkshop_30_09_2024_12_18_54](https://github.com/user-attachments/assets/d3f5822f-e43b-4ca6-84b5-22126a909a35)
 
+**Command to open inverter layout in magic tool**
+```bash
+magic -T sky130A.tech sky130_vsdinv.mag &
+```
+
 ![VirtualBox_vsdworkshop_30_09_2024_13_02_14](https://github.com/user-attachments/assets/3e4de42c-8e72-4c33-938c-22d116458f77)
+
+**lef command**
+```tcl
+lef write
+```
 
 ![VirtualBox_vsdworkshop_30_09_2024_13_12_09](https://github.com/user-attachments/assets/0b9679d9-242a-4aef-9f4e-a0d9968bbc2a)
 
@@ -684,11 +728,34 @@ drc why
 
 ![VirtualBox_vsdworkshop_30_09_2024_13_13_45](https://github.com/user-attachments/assets/cd3f7592-946f-491e-a7ce-71e38b2a777b)
 
+Screenshot of new created .lef file
 ![VirtualBox_vsdworkshop_30_09_2024_13_13_55](https://github.com/user-attachments/assets/a429dbd1-dcd9-413a-a0cc-3fcf1eb25f37)
+
+**Copy the lef file**
+```bash
+cp sky130_vsdinv.lef ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+```
 
 ![VirtualBox_vsdworkshop_30_09_2024_13_15_00](https://github.com/user-attachments/assets/757f4e73-47b0-4656-9856-1fc3fbdc8e9c)
 
 ![VirtualBox_vsdworkshop_30_09_2024_13_14_47](https://github.com/user-attachments/assets/fe1b9372-f24e-4646-97f4-f0fab4a9b70e)
+
+**List and check whether it's copied**
+```bash
+ls ~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+```
+
+**Copy the .lib files**
+```bash
+cp sky130_fd_sc_hd__*  /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src/
+```
+
+**List and check whether it's copied**
+```bash
+~/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/src$ ls -ltr
+```
+
+![VirtualBox_vsdworkshop_30_09_2024_13_33_19](https://github.com/user-attachments/assets/25b68c75-0eab-430c-a0c8-98b79f88600f)
 
 ![VirtualBox_vsdworkshop_30_09_2024_13_29_20](https://github.com/user-attachments/assets/e59b14c4-db24-43ff-b141-4fdaa3149815)
 
@@ -696,13 +763,71 @@ drc why
 
 ![VirtualBox_vsdworkshop_30_09_2024_13_30_44](https://github.com/user-attachments/assets/3ee6cd4a-5afe-479f-8b87-e5afcb54422a)
 
-![VirtualBox_vsdworkshop_30_09_2024_13_33_19](https://github.com/user-attachments/assets/25b68c75-0eab-430c-a0c8-98b79f88600f)
+**Commands to be added to config.tcl to include our custom cell in the openlane flow**
+```
+set ::env(LIB_SYNTH) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+set ::env(LIB_FASTEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__fast.lib"
+set ::env(LIB_SLOWEST) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__slow.lib"
+set ::env(LIB_TYPICAL) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc_hd__typical.lib"
+
+set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
+Edited config.tcl to include the added lef and change library to ones we added in src directory
+```
 
 ![VirtualBox_vsdworkshop_30_09_2024_13_31_30](https://github.com/user-attachments/assets/19dbbd6b-d5aa-40b9-bc8e-a4d8ae5bd4a3)
 
+**Invoking the Openlane flow using picorv32a :**
+
+**Changing directory to Openlane**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane
+```
+
+**Alias docker**
+```bash
+alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
+```
+Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command.
+```bash
+docker
+```
+
+**Invoke the OpenLane flow in the interactive mode**
+```bash
+./flow.tcl -interactive
+```
+
+**Now that we have invoked the OpenLANE flow, we require the package**
+```tcl
+package require openlane 0.9
+```
+
+**Now we need to prep the the design, in this case we are using 'picorv32a' design**
+```tcl
+prep -design picorv32a
+```
+
 ![VirtualBox_vsdworkshop_30_09_2024_13_31_49](https://github.com/user-attachments/assets/47ba21f1-bc04-4e4e-a5d1-72983390c9a0)
 
+**Additional commands to include new added .lef to OpenLANE flow**
+```tcl
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+```
+
+**Running synthesis**
+```tcl
+run_synthesis
+```
+
 ![VirtualBox_vsdworkshop_30_09_2024_13_32_30](https://github.com/user-attachments/assets/da1bed77-5c39-46f9-bab6-afd40b5ec850)
+
+**Running floorplan**
+```tcl
+run_floorplan
+```
+
+
 
 ![VirtualBox_vsdworkshop_30_09_2024_13_34_02](https://github.com/user-attachments/assets/8377fff3-6f32-4e56-ba1c-bcfe3a55cf30)
 
