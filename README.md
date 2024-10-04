@@ -772,6 +772,8 @@ Screenshots of PDN def in magic tool:
 
 ![VirtualBox_vsdworkshop_01_10_2024_10_00_54](https://github.com/user-attachments/assets/f5a3574e-1d1a-4acd-8a3c-7e18b9f3d435)
 
+![VirtualBox_vsdworkshop_01_10_2024_10_02_00](https://github.com/user-attachments/assets/32f3c93b-e533-44da-83b5-097a2c987657)
+
 **Check value of 'CURRENT_DEF**
 ```tcl
 echo $::env(CURRENT_DEF)
@@ -787,11 +789,11 @@ echo $::env(ROUTING_STRATEGY)
 run_routing
 ```
 
-![VirtualBox_vsdworkshop_01_10_2024_10_02_00](https://github.com/user-attachments/assets/32f3c93b-e533-44da-83b5-097a2c987657)
-
 ![VirtualBox_vsdworkshop_01_10_2024_10_04_35](https://github.com/user-attachments/assets/487acf6f-5c10-4dd8-b8fe-6a25f488fbfc)
 
 ![VirtualBox_vsdworkshop_01_10_2024_11_10_24](https://github.com/user-attachments/assets/965ea1ad-90be-4bad-a9a0-9fff1e6c8735)
+
+![VirtualBox_vsdworkshop_01_10_2024_11_11_00](https://github.com/user-attachments/assets/9564b2ca-b996-421b-9e33-8e75c4e34e05)
 
 **Change the directory to routed def path**
 ```bash
@@ -801,9 +803,7 @@ cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/01-10
 ```bash
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.def &
 ```
-
-![VirtualBox_vsdworkshop_01_10_2024_11_11_00](https://github.com/user-attachments/assets/9564b2ca-b996-421b-9e33-8e75c4e34e05)
-
+Screenshots of routed def in magic tool:
 ![VirtualBox_vsdworkshop_01_10_2024_11_13_54](https://github.com/user-attachments/assets/12bbe8ec-a937-4073-bdcb-754dcacdee83)
 
 ![VirtualBox_vsdworkshop_01_10_2024_11_14_41](https://github.com/user-attachments/assets/2beacc03-6ff6-4c70-8f77-db4da0c1babd)
