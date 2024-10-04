@@ -559,14 +559,17 @@ Screenshot of the magic tool:
 Opening the file in magic (from the directory):
 ![VirtualBox_vsdworkshop_30_09_2024_01_10_05](https://github.com/user-attachments/assets/7b3a5734-04d3-4bc0-988e-8e5e4c142d85)
 
+**check the met3.mag file in magic tool**
 ![VirtualBox_vsdworkshop_30_09_2024_01_10_14](https://github.com/user-attachments/assets/95df352f-0755-4532-99f9-49d541d4ce1f)
 
 ![VirtualBox_vsdworkshop_30_09_2024_01_21_05](https://github.com/user-attachments/assets/c7f92b73-d902-45f1-91b0-337df8b8856a)
 
+**Incorrectly implemented poly.9 simple rule correction**
 ![VirtualBox_vsdworkshop_30_09_2024_01_21_31](https://github.com/user-attachments/assets/ca890495-44bc-4409-aaa7-5988d960c2c1)
 
 ![VirtualBox_vsdworkshop_30_09_2024_01_21_40](https://github.com/user-attachments/assets/b2b1d67e-f71d-4c0a-92f6-e2a0f9202d59)
 
+Incorrectly implemented poly.9 rule with no drc violation:
 ![VirtualBox_vsdworkshop_30_09_2024_01_22_18](https://github.com/user-attachments/assets/c2b999bb-65ba-4388-83d5-89cdbb33b168)
 
 ![VirtualBox_vsdworkshop_30_09_2024_01_24_50](https://github.com/user-attachments/assets/336cdf03-836f-46ad-8327-4d0ebe1a93f6)
@@ -577,28 +580,84 @@ Opening the file in magic (from the directory):
 
 ![VirtualBox_vsdworkshop_30_09_2024_01_54_03](https://github.com/user-attachments/assets/f6143250-fc2d-4742-8e7d-aff2f0a22456)
 
+**Insert new commands in sky130A.tech to update drc**
+
 ![VirtualBox_vsdworkshop_30_09_2024_01_57_20](https://github.com/user-attachments/assets/423602f4-79b5-4275-bb47-809d9e16ebf4)
 
 ![VirtualBox_vsdworkshop_30_09_2024_01_58_11](https://github.com/user-attachments/assets/63dcd3a9-f540-4e10-ab01-03bd982d5afd)
 
 ![VirtualBox_vsdworkshop_30_09_2024_01_58_42](https://github.com/user-attachments/assets/90d3dde2-91ea-4f26-9726-0bfd70565d10)
 
+**Loading updated tech file**
+```tcl
+tech load sky130A.tech
+```
 ![VirtualBox_vsdworkshop_30_09_2024_02_36_33](https://github.com/user-attachments/assets/0bc59b3f-6538-4371-b393-54abbcfa9ba5)
+
+**re-run drc check to see updated drc errors**
+```tcl
+drc check
+```
+
+**Selecting region displaying the new errors and getting the error messages**
+```tcl
+drc why
+```
 
 ![VirtualBox_vsdworkshop_30_09_2024_02_47_47](https://github.com/user-attachments/assets/5925f375-54ed-47a6-b82b-8a29ba0f3274)
 
 ![VirtualBox_vsdworkshop_30_09_2024_02_48_47](https://github.com/user-attachments/assets/d28498e6-be28-4899-9bee-4c364ca8aedc)
 
+**Incorrectly implemented difftap.2 simple rule correction**
+
+**Insert new commands in sky130A.tech to update drc**
 ![VirtualBox_vsdworkshop_30_09_2024_02_49_16](https://github.com/user-attachments/assets/f4b026b4-dcdf-45a3-abde-9c38dd8f0212)
+
+**Commands to run in tkcon window**
+
+**Loading updated tech file**
+```tcl
+tech load sky130A.tech
+```
+
+**re-run drc check to see updated drc errors**
+```tcl
+drc check
+```
+
+**Selecting region displaying the new errors and getting the error messages**
+```tcl
+drc why
+```
 
 ![VirtualBox_vsdworkshop_30_09_2024_02_50_12](https://github.com/user-attachments/assets/32ec10bb-c196-4ce3-bad8-97a973663edb)
 
 ![VirtualBox_vsdworkshop_30_09_2024_02_57_11](https://github.com/user-attachments/assets/f68eafed-db6c-4fe2-9c83-528052137ba6)
 
+
+**Incorrectly implemented nwell.4 complex rule correction**
+
 ![VirtualBox_vsdworkshop_30_09_2024_03_01_37](https://github.com/user-attachments/assets/f7f97215-5553-4930-bed8-366007cc16dc)
+**Insert new commands in sky130A.tech to update drc**
 ![VirtualBox_vsdworkshop_30_09_2024_03_03_27](https://github.com/user-attachments/assets/d9a9372e-28f5-4cd4-aae7-2cc78b1984fd)
 
 ![VirtualBox_vsdworkshop_30_09_2024_03_05_18](https://github.com/user-attachments/assets/4433b434-b6e9-4993-b148-da9ffb05240f)
+**Commands to run in tkcon window**
+
+**Loading updated tech file**
+```tcl
+tech load sky130A.tech
+```
+
+**re-run drc check to see updated drc errors**
+```tcl
+drc check
+```
+
+**Selecting region displaying the new errors and getting the error messages**
+```tcl
+drc why
+```
 
 ## 4. Pre-layout Timing Analysis and Importance of Good Clock Tree
 
