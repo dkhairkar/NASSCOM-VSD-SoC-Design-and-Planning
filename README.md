@@ -678,6 +678,7 @@ Opening the file in magic (from the directory):
 
 
 
+![Screenshot (45)](https://github.com/user-attachments/assets/3c980d41-0987-467d-82db-c72827dc52e6)
 
 
 
