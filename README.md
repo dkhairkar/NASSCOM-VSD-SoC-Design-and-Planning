@@ -182,16 +182,18 @@ Finally the binary language fed to the hardware and performs functions.
 **Invoking the Openlane flow using picorv32a :**
 
 **Changing directory to Openlane**
-```terminal
+```bash
 cd Desktop/work/tools/openlane_working_dir/openlane
 ```
+
 **Alias docker**
-```terminal
+```bash
 docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21
 ```
-```terminal
+```bash
 docker
 ```
+
 **Invoke the OpenLane flow in the interactive mode**
 ```bash
 ./flow.tcl -interactive
@@ -262,16 +264,18 @@ exit
 **Invoking the Openlane flow using picorv32a :**
 
 **Changing directory to Openlane**
-```terminal
+```bash
 cd Desktop/work/tools/openlane_working_dir/openlane
 ```
+
 **Alias docker**
-```terminal
+```bash
 docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21
 ```
-```terminal
+```bash
 docker
 ```
+
 **Invoke the OpenLane flow in the interactive mode**
 ```bash
 ./flow.tcl -interactive
@@ -304,14 +308,15 @@ Screenshots of OpenLANE flow:
 ![VirtualBox_vsdworkshop_26_09_2024_18_28_45](https://github.com/user-attachments/assets/d3edd32a-09db-4767-9828-0d976ff25dcd)
 
 **Change to the directory containing floorplan def path**
-```temrminal
+```bash
  cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-09_12-55/results/floorplan/
 ```
 
 **Command for loading the floorplan def in Magic tool**
-```terminal
+```bash
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.floorplan.def &
 ```
+
 ![VirtualBox_vsdworkshop_26_09_2024_23_36_12](https://github.com/user-attachments/assets/4534b0b4-3387-44e9-953a-52a5cb4c60b2)
 
 ![VirtualBox_vsdworkshop_26_09_2024_23_36_28](https://github.com/user-attachments/assets/ddb24e45-cefc-42d1-95db-1c329baf8224)
@@ -333,14 +338,41 @@ run_placement
 ```
 ![VirtualBox_vsdworkshop_26_09_2024_23_46_11](https://github.com/user-attachments/assets/ac9489e2-485d-4e1e-9f50-37011f8dca44)
 
+Screenshot of the floorplan def:
+![VirtualBox_vsdworkshop_04_10_2024_20_46_59](https://github.com/user-attachments/assets/f2671ee2-d1c8-4c33-a77c-643a7ea614a5)
+
+According to floorplan def
+```math
+1000\ Unit\ Distance = 1\ Micron
+```
+```math
+Die\ width\ in\ unit\ distance = 660685 - 0 = 660685
+```
+```math
+Die\ height\ in\ unit\ distance = 671405 - 0 = 671405
+```
+```math
+Distance\ in\ microns = \frac{Value\ in\ Unit\ Distance}{1000}
+```
+```math
+Die\ width\ in\ microns = \frac{660685}{1000} = 660.685\ Microns
+```
+```math
+Die\ height\ in\ microns = \frac{671405}{1000} = 671.405\ Microns
+```
+```math
+Area\ of\ die\ in\ microns = 660.685 * 671.405 = 443587.212425\ Square\ Microns
+```
+
 ![VirtualBox_vsdworkshop_26_09_2024_23_48_23](https://github.com/user-attachments/assets/33901a59-4b6f-40ac-90a7-1d3df2a8a7b6)
+
 **Change the directory to placement def path**
-```terminal
+```bash
 cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-09_12-55/results/placement/
 ```
 
 **Command for loading the placement def in Magic tool**
-```terminal
+```bash
 magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
 ```
 ![VirtualBox_vsdworkshop_26_09_2024_23_51_12](https://github.com/user-attachments/assets/1ec2db04-c9b4-41ef-9b13-e6ab7f17803e)
@@ -625,6 +657,7 @@ Opening the file in magic (from the directory):
 
 ### Lab Implementation:
 
+**Objective :** 
 
 ![VirtualBox_vsdworkshop_01_10_2024_09_34_25](https://github.com/user-attachments/assets/69b9c477-721a-4429-8708-ae8b42eca3f1)
 
@@ -671,31 +704,3 @@ Opening the file in magic (from the directory):
 ![VirtualBox_vsdworkshop_01_10_2024_11_34_02](https://github.com/user-attachments/assets/6dc00975-7cb1-4f84-afd7-cb9ab3e2cd4b)
 
 ![VirtualBox_vsdworkshop_01_10_2024_11_34_09](https://github.com/user-attachments/assets/e672a6f6-fa9f-4f85-a0f4-d4d2dad7ca61)
-
-
-
-
-
-
-
-![Screenshot (45)](https://github.com/user-attachments/assets/3c980d41-0987-467d-82db-c72827dc52e6)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
