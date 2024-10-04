@@ -520,18 +520,19 @@ cd
 wget http://opencircuitdesign.com/open_pdks/archive/drc_tests.tgz
 ```
 
-# command to extract the files
+**Extract the files**
 ```bash
 tar xfz drc_tests.tgz
 ```
 
-# Change into the lab directory
+**Change into the lab directory**
 ```bash
 cd drc_tests
 ```
+
 ![VirtualBox_vsdworkshop_30_09_2024_00_56_57](https://github.com/user-attachments/assets/1a361264-b23a-4429-85eb-6d2055201205)
 
-# List all files and directories present in the current directory
+**List all files and directories present in the current directory**
 ```bash
 ls -al
 ```
