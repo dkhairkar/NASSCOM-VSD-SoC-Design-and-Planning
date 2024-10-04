@@ -338,6 +338,8 @@ run_placement
 ```
 ![VirtualBox_vsdworkshop_26_09_2024_23_46_11](https://github.com/user-attachments/assets/ac9489e2-485d-4e1e-9f50-37011f8dca44)
 
+![VirtualBox_vsdworkshop_26_09_2024_23_48_23](https://github.com/user-attachments/assets/33901a59-4b6f-40ac-90a7-1d3df2a8a7b6)
+
 Screenshot of the floorplan def:
 ![VirtualBox_vsdworkshop_04_10_2024_20_46_59](https://github.com/user-attachments/assets/f2671ee2-d1c8-4c33-a77c-643a7ea614a5)
 
@@ -363,9 +365,6 @@ Die\ height\ in\ microns = \frac{671405}{1000} = 671.405\ Microns
 ```math
 Area\ of\ die\ in\ microns = 660.685 * 671.405 = 443587.212425\ Square\ Microns
 ```
-
-![VirtualBox_vsdworkshop_26_09_2024_23_48_23](https://github.com/user-attachments/assets/33901a59-4b6f-40ac-90a7-1d3df2a8a7b6)
-
 **Change the directory to placement def path**
 ```bash
 cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/26-09_12-55/results/placement/
