@@ -917,6 +917,27 @@ cd Desktop/work/tools/openlane_working_dir/openlane
 ```bash
 sta pre_sta.conf
 ```
+**perform analysis and optimize timing by replacing with OR gate of drive strength 4**
+**Reports all the connections to a net**
+```tcl
+report_net -connections _11672_
+```
+
+**Checking command syntax**
+```tcl
+help replace_cell
+```
+
+**Replacing cell**
+```tcl
+replace_cell _14510_ sky130_fd_sc_hd__or3_4
+```
+
+**Generating custom timing report**
+```tcl
+report_checks -fields {net cap slew input_pins} -digits 4
+```
+
 ![VirtualBox_vsdworkshop_01_10_2024_00_51_36](https://github.com/user-attachments/assets/e0afe667-7fd0-462d-8ad5-360c96e19615)
 ![VirtualBox_vsdworkshop_01_10_2024_00_52_18](https://github.com/user-attachments/assets/55203898-0602-41a9-8361-7987147c2c66)
 ![VirtualBox_vsdworkshop_01_10_2024_00_55_59](https://github.com/user-attachments/assets/50402ab4-e35a-4251-9a16-b03d691778d2)
@@ -925,8 +946,42 @@ sta pre_sta.conf
 
 ![VirtualBox_vsdworkshop_01_10_2024_00_56_11](https://github.com/user-attachments/assets/459a2047-17a2-46f5-a236-c08b93cbea80)
 
+**OR gate of drive strength 2 is driving 4 fanouts**
+
+![VirtualBox_vsdworkshop_01_10_2024_00_58_29](https://github.com/user-attachments/assets/12ada05d-79c9-44dc-aff9-338527a190ce)
+
+**perform analysis and optimize timing by replacing with OR gate of drive strength 4**
+
+**Reports all the connections to a net**
+```tcl
+report_net -connections _11675_
+```
+
+**Replacing cell**
+```tcl
+replace_cell _14514_ sky130_fd_sc_hd__or3_4
+```
+
+**Generating custom timing report**
+```tcl
+report_checks -fields {net cap slew input_pins} -digits 4
+```
+
+![VirtualBox_vsdworkshop_01_10_2024_01_01_12](https://github.com/user-attachments/assets/786ecc7d-a261-4f75-9926-2b5424a0922a)
+
+![VirtualBox_vsdworkshop_01_10_2024_01_01_52](https://github.com/user-attachments/assets/c8a522df-963d-46ff-9367-7049a56061b8)
+
+![VirtualBox_vsdworkshop_01_10_2024_01_02_09](https://github.com/user-attachments/assets/9cb7e2a2-0685-42d7-9d14-baea7dc65c9c)
+
+![VirtualBox_vsdworkshop_01_10_2024_01_04_50](https://github.com/user-attachments/assets/03086712-5f79-4c6e-adb7-2605ebdfe5ba)
+![VirtualBox_vsdworkshop_01_10_2024_01_04_58](https://github.com/user-attachments/assets/6939ee8a-c332-468d-b751-795f18921b6c)
+
+![VirtualBox_vsdworkshop_01_10_2024_01_06_36](https://github.com/user-attachments/assets/4234b622-3e67-44f2-9a57-7710275ed2a3)
 
 
+![VirtualBox_vsdworkshop_01_10_2024_01_06_44](https://github.com/user-attachments/assets/bdf78384-9a2c-4bc7-80b7-05033a70275a)
+
+![VirtualBox_vsdworkshop_01_10_2024_01_07_34](https://github.com/user-attachments/assets/5d4ec8b0-f655-43d6-9871-1b5ffdd6f5de)
 
 
 
