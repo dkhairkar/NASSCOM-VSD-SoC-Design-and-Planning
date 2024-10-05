@@ -901,30 +901,7 @@ echo $::env(SYNTH_DRIVING_CELL)
 ```tcl
 run_synthesis
 ```
-**Running Floorplan**
-```tcl
-run_floorplan
-```
-Since we are facing unexpected un-explainable error while using run_floorplan command, we can instead use the following set of commands available based on information from Desktop/work/tools/openlane_working_dir/openlane/scripts/tcl_commands/floorplan.tcl and also based on Floorplan Commands section in Desktop/work/tools/openlane_working_dir/openlane/docs/source/OpenLANE_commands.md
-**Following commands are alltogather sourced in "run_floorplan" command**
-```tcl
-init_floorplan
-place_io
-tap_decap_or
-```
-**Running placement**
-```tcl
-run_placement
-```
-**Incase getting error**
-```tcl
-unset ::env(LIB_CTS)
-```
 
-**Run clock tree synthesis**
-```tcl
-run_cts
-```
 
 ![VirtualBox_vsdworkshop_01_10_2024_00_45_24](https://github.com/user-attachments/assets/7b2effa0-e4b4-446f-8126-811e7cdf464f)
 ![VirtualBox_vsdworkshop_01_10_2024_00_48_20](https://github.com/user-attachments/assets/4a639493-2ed8-48cc-a64c-ea191c5b46d8)
@@ -1043,7 +1020,30 @@ exit
 
 ![VirtualBox_vsdworkshop_01_10_2024_01_14_55](https://github.com/user-attachments/assets/7f945541-b74f-45b0-9b4c-1c40d6c5d38a)
 
+**Running Floorplan**
+```tcl
+run_floorplan
+```
+Since we are facing unexpected un-explainable error while using run_floorplan command, we can instead use the following set of commands available based on information from Desktop/work/tools/openlane_working_dir/openlane/scripts/tcl_commands/floorplan.tcl and also based on Floorplan Commands section in Desktop/work/tools/openlane_working_dir/openlane/docs/source/OpenLANE_commands.md
+**Following commands are alltogather sourced in "run_floorplan" command**
+```tcl
+init_floorplan
+place_io
+tap_decap_or
+```
+**Running placement**
+```tcl
+run_placement
+```
+**Incase getting error**
+```tcl
+unset ::env(LIB_CTS)
+```
 
+**Run clock tree synthesis**
+```tcl
+run_cts
+```
 
 ![VirtualBox_vsdworkshop_01_10_2024_01_48_56](https://github.com/user-attachments/assets/f7fab771-b92d-4ba5-94e5-264992bd0bd1)
 
