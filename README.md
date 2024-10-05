@@ -895,7 +895,6 @@ echo $::env(SYNTH_DRIVING_CELL)
 ```tcl
 run_synthesis
 ```
-![VirtualBox_vsdworkshop_30_09_2024_15_27_05](https://github.com/user-attachments/assets/53d88df8-3f9c-4341-92d2-6bf16e3178b5)
 
 ![VirtualBox_vsdworkshop_30_09_2024_18_55_10](https://github.com/user-attachments/assets/1b38f34c-adaa-40e1-8f06-9b37dbd3e359)
 
@@ -903,7 +902,20 @@ run_synthesis
 
 ![VirtualBox_vsdworkshop_30_09_2024_18_59_07](https://github.com/user-attachments/assets/36ec588b-0143-4771-b359-3a586326f0e7)
 
+**Running Floorplan**
+```tcl
+run_floorplan
+```
+
 ![VirtualBox_vsdworkshop_30_09_2024_19_04_21](https://github.com/user-attachments/assets/897f6f8d-a6e3-4b1b-8854-9ac47a9ea2fe)
+
+Since we are facing unexpected un-explainable error while using run_floorplan command, we can instead use the following set of commands available based on information from Desktop/work/tools/openlane_working_dir/openlane/scripts/tcl_commands/floorplan.tcl and also based on Floorplan Commands section in Desktop/work/tools/openlane_working_dir/openlane/docs/source/OpenLANE_commands.md
+**Following commands are alltogather sourced in "run_floorplan" command**
+```tcl
+init_floorplan
+place_io
+tap_decap_or
+```
 
 ![VirtualBox_vsdworkshop_30_09_2024_19_10_48](https://github.com/user-attachments/assets/08291439-90e5-4d85-90e7-386baa79d111)
 
@@ -911,10 +923,43 @@ run_synthesis
 
 ![VirtualBox_vsdworkshop_30_09_2024_19_11_31](https://github.com/user-attachments/assets/27e6beae-7b50-45ff-8488-8c79d42e8906)
 
+**Running placement**
+```tcl
+run_placement
+```
+
 ![VirtualBox_vsdworkshop_30_09_2024_19_12_46](https://github.com/user-attachments/assets/6d842d23-3cc9-4d9d-949c-284ed5b33288)
 
 ![VirtualBox_vsdworkshop_30_09_2024_19_15_02](https://github.com/user-attachments/assets/be57b2b2-6a36-4c84-83cd-0722df2f8d67)
 
+**Change directory path to generated placement def file**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/30-09_13-07/results/placement/
+```
+
+**Load the placement def in magic tool**
+```bash
+magic -T /home/vsduser/Desktop/work/tools/openlane_working_dir/pdks/sky130A/libs.tech/magic/sky130A.tech lef read ../../tmp/merged.lef def read picorv32a.placement.def &
+```
+![VirtualBox_vsdworkshop_30_09_2024_19_27_00](https://github.com/user-attachments/assets/44de225c-5b72-4a5d-9849-745839bb72ba)
+
+Placement def in magic tool:
+
+![VirtualBox_vsdworkshop_30_09_2024_19_29_36](https://github.com/user-attachments/assets/cb7910cf-69ca-4eaa-be9b-51e4e2087640)
+
+![VirtualBox_vsdworkshop_30_09_2024_19_29_47](https://github.com/user-attachments/assets/1c0e288c-4064-4101-aac9-c2092bd4d658)
+
+**Command to view internal connectivity layers in tkcon window**
+```tcl
+expand
+```
+![VirtualBox_vsdworkshop_30_09_2024_19_34_32](https://github.com/user-attachments/assets/68a34a53-4a35-4908-8a47-e588f68a9f16)
+
+![VirtualBox_vsdworkshop_30_09_2024_19_34_48](https://github.com/user-attachments/assets/28193031-b6e0-489c-8278-572dd2ebb6be)
+
+![VirtualBox_vsdworkshop_30_09_2024_19_35_02](https://github.com/user-attachments/assets/d88fe494-8249-45b8-aa0d-4e32d38bc360)
+
+![VirtualBox_vsdworkshop_30_09_2024_19_35_43](https://github.com/user-attachments/assets/3c7acec5-484d-42c4-8405-604e64a51b84)
 
 
 ## 5. Final Steps for RTL2GDS using triton Route and openSta
