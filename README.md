@@ -1037,9 +1037,10 @@ write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/des
 
 
 **Exit from OpenSTA since timing analysis is done**
-``tcl
+```tcl
 exit
 ```
+
 ![VirtualBox_vsdworkshop_01_10_2024_01_14_55](https://github.com/user-attachments/assets/7f945541-b74f-45b0-9b4c-1c40d6c5d38a)
 
 
