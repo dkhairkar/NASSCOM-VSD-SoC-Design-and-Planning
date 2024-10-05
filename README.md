@@ -820,7 +820,8 @@ package require openlane 0.9
 ```tcl
 prep -design picorv32a
 ```
-![VirtualBox_vsdworkshop_30_09_2024_20_38_02](https://github.com/user-attachments/assets/dab5b215-2daf-471d-aef3-d6defe496d0c)
+![VirtualBox_vsdworkshop_01_10_2024_00_34_56](https://github.com/user-attachments/assets/98a0db82-1698-40bb-ab6c-2ec20f7a747e)
+
 
 **Addiitional commands to include in new added .lef to OpenLANE flow merged.lef**
 ```tcl
@@ -833,8 +834,15 @@ add_lefs -src $lefs
 set ::env(SYNTH_SIZING) 1
 ```
 
+**Running Synthesis**
+```tcl
+run_synthesis
+```
+![VirtualBox_vsdworkshop_01_10_2024_00_37_18](https://github.com/user-attachments/assets/904973e8-a398-42bc-82f5-dc32b7e454f1)
+
 **Create New pre_sta.conf for STA analysis in openlane directory**
-![VirtualBox_vsdworkshop_30_09_2024_23_45_22](https://github.com/user-attachments/assets/89a40732-cb35-4c03-9499-67a8c2e46904)
+![VirtualBox_vsdworkshop_01_10_2024_00_34_56](https://github.com/user-attachments/assets/a1ddcf3f-c11b-446c-9ef8-496f6a0d83eb)
+
 
 **Create New my_base.sdc for STA analysis in openlane/designs/picorv32a/src directory based on the file openlane/scripts/base.sdc**
 
@@ -842,16 +850,10 @@ set ::env(SYNTH_SIZING) 1
 
 ![VirtualBox_vsdworkshop_30_09_2024_23_59_25](https://github.com/user-attachments/assets/295085a3-ca98-4ebb-87f7-2f97e0dbeb8e)
 
-**Running Synthesis**
-```tcl
-run_synthesis
-```
-![VirtualBox_vsdworkshop_30_09_2024_20_40_32](https://github.com/user-attachments/assets/1318cc86-9812-4caf-af80-e7e2252a3b79)
-
 To fix this slack we use:
 **prep design so as to update variables**
 ```tcl
-prep -design picorv32a -tag 24-03_10-03 -overwrite
+prep -design picorv32a -tag 30-09_19-04 -overwrite
 ```
 
 **Addiitional commands to include in new added .lef to OpenLANE flow merged.lef**
@@ -905,7 +907,7 @@ run_placement
 
 ### Lab Implementation:
 
-**Objective :** TO run the following tasks:
+**Objective :** To run the following tasks:
 1. Generate Power Distribution Network (PDN) and load the layout.
 2. Perform detailed routing using TritonRoute
 
@@ -978,6 +980,7 @@ tap_decap_or
 **Run placement**
 ```tcl
 run_placement
+```
 
 ![VirtualBox_vsdworkshop_01_10_2024_09_44_07](https://github.com/user-attachments/assets/9c1f26aa-aec2-4724-99b9-1a5570d0a562)
 
