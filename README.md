@@ -763,7 +763,8 @@ cp sky130_fd_sc_hd__*  /home/vsduser/Desktop/work/tools/openlane_working_dir/ope
 
 ![VirtualBox_vsdworkshop_30_09_2024_13_33_19](https://github.com/user-attachments/assets/25b68c75-0eab-430c-a0c8-98b79f88600f)
 
-![VirtualBox_vsdworkshop_30_09_2024_13_31_30](https://github.com/user-attachments/assets/19dbbd6b-d5aa-40b9-bc8e-a4d8ae5bd4a3)
+
+
 
 
 
@@ -777,8 +778,15 @@ set ::env(LIB_TYPICAL) "$::env(OPENLANE_ROOT)/designs/picorv32a/src/sky130_fd_sc
 set ::env(EXTRA_LEFS) [glob $::env(OPENLANE_ROOT)/designs/$::env(DESIGN_NAME)/src/*.lef]
 Edited config.tcl to include the added lef and change library to ones we added in src directory
 ```
+![VirtualBox_vsdworkshop_30_09_2024_13_38_59](https://github.com/user-attachments/assets/46267822-7340-41e2-aaa1-614df0523ce1)
+
+![VirtualBox_vsdworkshop_30_09_2024_13_34_02](https://github.com/user-attachments/assets/8377fff3-6f32-4e56-ba1c-bcfe3a55cf30)
+
+![VirtualBox_vsdworkshop_30_09_2024_13_31_30](https://github.com/user-attachments/assets/19dbbd6b-d5aa-40b9-bc8e-a4d8ae5bd4a3)
 
 ![VirtualBox_vsdworkshop_30_09_2024_13_31_49](https://github.com/user-attachments/assets/47ba21f1-bc04-4e4e-a5d1-72983390c9a0)
+
+![VirtualBox_vsdworkshop_30_09_2024_13_32_30](https://github.com/user-attachments/assets/da1bed77-5c39-46f9-bab6-afd40b5ec850)
 
 **Invoking the Openlane flow using picorv32a :**
 
@@ -810,8 +818,7 @@ package require openlane 0.9
 ```tcl
 prep -design picorv32a
 ```
-
-![VirtualBox_vsdworkshop_30_09_2024_13_32_30](https://github.com/user-attachments/assets/da1bed77-5c39-46f9-bab6-afd40b5ec850)
+![VirtualBox_vsdworkshop_30_09_2024_14_40_57](https://github.com/user-attachments/assets/4b4e8d84-3a9d-4aee-8cd4-25f0531e39ce)
 
 **Additional commands to include new added .lef to OpenLANE flow**
 ```tcl
@@ -823,8 +830,11 @@ add_lefs -src $lefs
 ```tcl
 run_synthesis
 ```
+![VirtualBox_vsdworkshop_30_09_2024_14_44_03](https://github.com/user-attachments/assets/4ab41e94-a38a-4a56-b678-ee498cfe08da)
 
-![VirtualBox_vsdworkshop_30_09_2024_13_34_02](https://github.com/user-attachments/assets/8377fff3-6f32-4e56-ba1c-bcfe3a55cf30)
+![VirtualBox_vsdworkshop_30_09_2024_14_51_17](https://github.com/user-attachments/assets/884dbab3-465f-4a17-bd13-7cc99cb34f12)
+
+![VirtualBox_vsdworkshop_30_09_2024_14_53_22](https://github.com/user-attachments/assets/fd6b19a1-0318-4ce6-a593-eb180679a92e)
 
 **Running floorplan**
 ```tcl
@@ -835,15 +845,13 @@ run_floorplan
 
 
 
-![VirtualBox_vsdworkshop_30_09_2024_13_38_59](https://github.com/user-attachments/assets/46267822-7340-41e2-aaa1-614df0523ce1)
 
-![VirtualBox_vsdworkshop_30_09_2024_14_40_57](https://github.com/user-attachments/assets/4b4e8d84-3a9d-4aee-8cd4-25f0531e39ce)
 
-![VirtualBox_vsdworkshop_30_09_2024_14_44_03](https://github.com/user-attachments/assets/4ab41e94-a38a-4a56-b678-ee498cfe08da)
 
-![VirtualBox_vsdworkshop_30_09_2024_14_51_17](https://github.com/user-attachments/assets/884dbab3-465f-4a17-bd13-7cc99cb34f12)
 
-![VirtualBox_vsdworkshop_30_09_2024_14_53_22](https://github.com/user-attachments/assets/fd6b19a1-0318-4ce6-a593-eb180679a92e)
+
+
+
 
 
 ## 5. Final Steps for RTL2GDS using triton Route and openSta
