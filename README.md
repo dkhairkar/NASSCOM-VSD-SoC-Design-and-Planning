@@ -901,6 +901,31 @@ echo $::env(SYNTH_DRIVING_CELL)
 ```tcl
 run_synthesis
 ```
+**Running Floorplan**
+```tcl
+run_floorplan
+```
+Since we are facing unexpected un-explainable error while using run_floorplan command, we can instead use the following set of commands available based on information from Desktop/work/tools/openlane_working_dir/openlane/scripts/tcl_commands/floorplan.tcl and also based on Floorplan Commands section in Desktop/work/tools/openlane_working_dir/openlane/docs/source/OpenLANE_commands.md
+**Following commands are alltogather sourced in "run_floorplan" command**
+```tcl
+init_floorplan
+place_io
+tap_decap_or
+```
+**Running placement**
+```tcl
+run_placement
+```
+**Incase getting error**
+```tcl
+unset ::env(LIB_CTS)
+```
+
+**Run clock tree synthesis**
+```tcl
+run_cts
+```
+
 ![VirtualBox_vsdworkshop_01_10_2024_00_45_24](https://github.com/user-attachments/assets/7b2effa0-e4b4-446f-8126-811e7cdf464f)
 ![VirtualBox_vsdworkshop_01_10_2024_00_48_20](https://github.com/user-attachments/assets/4a639493-2ed8-48cc-a64c-ea191c5b46d8)
 ![VirtualBox_vsdworkshop_01_10_2024_00_51_05](https://github.com/user-attachments/assets/22817df3-f5c2-4481-ba41-89cc383227ef)
@@ -966,6 +991,7 @@ replace_cell _14514_ sky130_fd_sc_hd__or3_4
 ```tcl
 report_checks -fields {net cap slew input_pins} -digits 4
 ```
+**Continue to perform analysis and optimize timing until slack is reduced.**
 
 ![VirtualBox_vsdworkshop_01_10_2024_01_01_12](https://github.com/user-attachments/assets/786ecc7d-a261-4f75-9926-2b5424a0922a)
 
@@ -984,6 +1010,156 @@ report_checks -fields {net cap slew input_pins} -digits 4
 ![VirtualBox_vsdworkshop_01_10_2024_01_07_34](https://github.com/user-attachments/assets/5d4ec8b0-f655-43d6-9871-1b5ffdd6f5de)
 
 
+**Commands to copy the netlist
+**Change from home directory to synthesis results directory**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/25-03_18-52/results/synthesis/
+```
+![VirtualBox_vsdworkshop_01_10_2024_01_11_02](https://github.com/user-attachments/assets/3b6dde75-ff1a-4786-a72e-a34621f2d312)
+
+**Copy and rename the netlist**
+```bash
+cp picorv32a.synthesis.v picorv32a.synthesis_old.v
+```
+![VirtualBox_vsdworkshop_01_10_2024_01_16_20](https://github.com/user-attachments/assets/49df1779-1573-4b9f-9ae5-2d32746668a4)
+
+![VirtualBox_vsdworkshop_01_10_2024_01_22_34](https://github.com/user-attachments/assets/e35cd3fe-9b1b-4895-9dbd-f3f83cbacc93)
+
+**Writing the verilog file**
+```bash
+help write_verilog
+```
+
+**Overwriting current synthesis netlist**
+```bash
+write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/30-09_19-04/results/synthesis/picorv32a.synthesis.v
+```
+
+
+**Exit from OpenSTA since timing analysis is done**
+``bash
+exit
+```
+![VirtualBox_vsdworkshop_01_10_2024_01_14_55](https://github.com/user-attachments/assets/9cd4cb37-c152-44e2-8d62-c6f19ee140ea)
+
+
+![VirtualBox_vsdworkshop_01_10_2024_01_48_56](https://github.com/user-attachments/assets/f7fab771-b92d-4ba5-94e5-264992bd0bd1)
+
+
+![VirtualBox_vsdworkshop_01_10_2024_01_49_26](https://github.com/user-attachments/assets/9fffcabb-2b82-4d5e-a2da-33c15faedb82)
+
+![VirtualBox_vsdworkshop_01_10_2024_01_52_18](https://github.com/user-attachments/assets/913522a8-c577-46fb-b1b9-3c314f1cb237)
+
+
+![VirtualBox_vsdworkshop_01_10_2024_02_00_50](https://github.com/user-attachments/assets/211c906a-1899-46ac-9b5c-0d95b699e5bd)
+
+
+![VirtualBox_vsdworkshop_01_10_2024_02_08_34](https://github.com/user-attachments/assets/9600bc89-01e3-4e76-ba23-d26b6ed851fc)
+
+![VirtualBox_vsdworkshop_01_10_2024_02_17_21](https://github.com/user-attachments/assets/1fb0593f-9ca4-40e9-aeb1-58ceb067f9a5)
+
+
+![VirtualBox_vsdworkshop_01_10_2024_02_19_54](https://github.com/user-attachments/assets/6f15051a-ce86-4a9c-93b2-acd314c1704e)
+
+![VirtualBox_vsdworkshop_01_10_2024_02_29_58](https://github.com/user-attachments/assets/f5a2319c-f9a3-4277-b07d-94f2c37ace96)
+
+
+![VirtualBox_vsdworkshop_01_10_2024_02_30_09](https://github.com/user-attachments/assets/f4c44d12-d42e-428b-8488-26917e43a15a)
+
+![VirtualBox_vsdworkshop_01_10_2024_02_33_58](https://github.com/user-attachments/assets/b3ac85b8-df8b-4e70-aec4-1943794ea6a3)
+
+![VirtualBox_vsdworkshop_01_10_2024_06_16_00](https://github.com/user-attachments/assets/da6d5027-b5c8-4120-a959-d36dbece0b89)
+
+**Commands to be run in OpenLANE flow to do OpenROAD timing analysis after changing CTS_CLK_BUFFER_LIST**
+```tcl
+# Checking current value of 'CTS_CLK_BUFFER_LIST'
+echo $::env(CTS_CLK_BUFFER_LIST)
+
+# Removing 'sky130_fd_sc_hd__clkbuf_1' from the list
+set ::env(CTS_CLK_BUFFER_LIST) [lreplace $::env(CTS_CLK_BUFFER_LIST) 0 0]
+
+# Checking current value of 'CTS_CLK_BUFFER_LIST'
+echo $::env(CTS_CLK_BUFFER_LIST)
+
+# Checking current value of 'CURRENT_DEF'
+echo $::env(CURRENT_DEF)
+
+# Setting def as placement def
+set ::env(CURRENT_DEF) /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/placement/picorv32a.placement.def
+
+# Run CTS again
+run_cts
+
+# Checking current value of 'CTS_CLK_BUFFER_LIST'
+echo $::env(CTS_CLK_BUFFER_LIST)
+
+# Command to run OpenROAD tool
+openroad
+
+# Reading lef file
+read_lef /openLANE_flow/designs/picorv32a/runs/24-03_10-03/tmp/merged.lef
+
+# Reading def file
+read_def /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/cts/picorv32a.cts.def
+
+# Creating an OpenROAD database to work with
+write_db pico_cts1.db
+
+# Loading the created database in OpenROAD
+read_db pico_cts.db
+
+# Read netlist post CTS
+read_verilog /openLANE_flow/designs/picorv32a/runs/24-03_10-03/results/synthesis/picorv32a.synthesis_cts.v
+
+# Read library for design
+read_liberty $::env(LIB_SYNTH_COMPLETE)
+
+# Link design and library
+link_design picorv32a
+
+# Read in the custom sdc we created
+read_sdc /openLANE_flow/designs/picorv32a/src/my_base.sdc
+
+# Setting all cloks as propagated clocks
+set_propagated_clock [all_clocks]
+
+# Generating custom timing report
+report_checks -path_delay min_max -fields {slew trans net cap input_pins} -format full_clock_expanded -digits 4
+
+# Report hold skew
+report_clock_skew -hold
+
+# Report setup skew
+report_clock_skew -setup
+
+# Exit to OpenLANE flow
+exit
+
+# Checking current value of 'CTS_CLK_BUFFER_LIST'
+echo $::env(CTS_CLK_BUFFER_LIST)
+
+# Inserting 'sky130_fd_sc_hd__clkbuf_1' to first index of list
+set ::env(CTS_CLK_BUFFER_LIST) [linsert $::env(CTS_CLK_BUFFER_LIST) 0 sky130_fd_sc_hd__clkbuf_1]
+
+# Checking current value of 'CTS_CLK_BUFFER_LIST'
+echo $::env(CTS_CLK_BUFFER_LIST)
+```
+![VirtualBox_vsdworkshop_01_10_2024_06_16_22](https://github.com/user-attachments/assets/aa827fa2-0c58-48af-8bf0-a5cafdb91d8f)
+
+
+
+![VirtualBox_vsdworkshop_01_10_2024_06_16_30](https://github.com/user-attachments/assets/f2529e7b-085a-4f02-ae57-28e6b26a358e)
+
+![VirtualBox_vsdworkshop_01_10_2024_06_16_37](https://github.com/user-attachments/assets/847ebe2e-cea7-45c7-929a-6cfca922a319)
+
+
+![VirtualBox_vsdworkshop_01_10_2024_06_16_46](https://github.com/user-attachments/assets/d5b27e33-ae82-4e0e-a679-90bccaffc290)
+
+
+![VirtualBox_vsdworkshop_01_10_2024_06_16_52](https://github.com/user-attachments/assets/ac0743b1-113a-478f-a7b3-654bbaee1547)
+
+
+![VirtualBox_vsdworkshop_01_10_2024_09_31_10](https://github.com/user-attachments/assets/7aebf3bf-7579-4f6d-82e3-fafd9606d2f8)
 
 ## 5. Final Steps for RTL2GDS using triton Route and openSta
 
