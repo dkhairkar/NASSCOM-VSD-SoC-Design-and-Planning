@@ -331,13 +331,53 @@ plot y vs a
 
 ![VirtualBox_vsdworkshop_29_09_2024_23_27_09](https://github.com/user-attachments/assets/3e07b672-1f18-4dbe-926e-1377507f27fe)
 
+```math
+20\%\ of\ output = 660\ mV
+```
+Screenshot of 20% of output:
 ![VirtualBox_vsdworkshop_29_09_2024_23_26_58](https://github.com/user-attachments/assets/c2bcef7e-5a6c-4246-ab52-987df586fc85)
 
+```math
+80\%\ of\ output = 2.64\ V
+```
+Screenshot of 80% of output:
 ![VirtualBox_vsdworkshop_29_09_2024_23_30_24](https://github.com/user-attachments/assets/5869d269-8c97-47bb-8a7a-cb85f1a99251)
+```math
+50\%\ of\ output = 1.65\ V
+```
 
+Screenshot of 50% of output:
 ![VirtualBox_vsdworkshop_29_09_2024_23_31_50](https://github.com/user-attachments/assets/b933d86f-3638-48f4-9581-a81ea055deae)
 
 ![VirtualBox_vsdworkshop_29_09_2024_23_32_30](https://github.com/user-attachments/assets/701829c7-6ffa-47b2-9e0d-f9c869127ba6)
+**Rise transition time calculation**
+
+```math
+Rise\ transition\ time = Time\ taken\ for\ output\ to\ rise\ to\ 80\% - Time\ taken\ for\ output\ to\ rise\ to\ 20\%
+```
+
+```math
+Rise\ transition\ time = 2.23 - 2.18 = 0.05\ ns = 50\ ps
+```
+
+**Fall transition time calculation**
+
+```math
+Fall\ transition\ time = Time\ taken\ for\ output\ to\ fall\ to\ 20\% - Time\ taken\ for\ output\ to\ fall\ to\ 80\%
+```
+
+```math
+Fall\ transition\ time = 2.17964 - 2.11968 = 0.05996\ ns = 59.96\ ps
+```
+**Cell Delay Calculation**
+
+```math
+Cell\ Delay = Time\ taken\ for\ output\ to\ rise\ to\ 50\% - Time\ taken\ for\ input\ to\ fall\ to\ 50\%
+```
+
+```math
+Cell\ Delay = 2.207 - 2.1498 = 0.0572\ ns = 57.2\ ps
+```
 
 **Change to home directory**
 ```bash
@@ -987,7 +1027,7 @@ report_checks -fields {net cap slew input_pins} -digits 4
 ![VirtualBox_vsdworkshop_01_10_2024_01_07_34](https://github.com/user-attachments/assets/5d4ec8b0-f655-43d6-9871-1b5ffdd6f5de)
 
 
-**Commands to copy the netlist
+**Commands to copy the netlist**
 **Change from home directory to synthesis results directory**
 ```bash
 cd Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/25-03_18-52/results/synthesis/
