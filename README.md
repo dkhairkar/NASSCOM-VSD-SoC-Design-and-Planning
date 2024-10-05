@@ -667,8 +667,9 @@ drc why
 
 ### Lab Implementation
 
-**Objective :** To run the following task
-
+**Objective :** To run the following task:
+1. Explore timing modeling using delay tables.
+2. process of converting grid information to track information.
 
 **Change the directory to vsdstdcelldesign**
 ```bash
@@ -961,12 +962,124 @@ expand
 
 ![VirtualBox_vsdworkshop_30_09_2024_19_35_43](https://github.com/user-attachments/assets/3c7acec5-484d-42c4-8405-604e64a51b84)
 
+**Invoking the Openlane flow using picorv32a :**
+
+**Changing directory to Openlane**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane
+```
+
+**Alias docker**
+```bash
+alias docker='docker run -it -v $(pwd):/openLANE_flow -v $PDK_ROOT:$PDK_ROOT -e PDK_ROOT=$PDK_ROOT -u $(id -u $USER):$(id -g $USER) efabless/openlane:v0.21'
+```
+Since we have aliased the long command to 'docker' we can invoke the OpenLANE flow docker sub-system by just running this command.
+```bash
+docker
+```
+
+**Invoke the OpenLane flow in the interactive mode**
+```bash
+./flow.tcl -interactive
+```
+
+**Now that we have invoked the OpenLANE flow, we require the package**
+```tcl
+package require openlane 0.9
+```
+
+**Now we need to prep the the design, in this case we are using 'picorv32a' design**
+```tcl
+prep -design picorv32a
+```
+![VirtualBox_vsdworkshop_30_09_2024_20_38_02](https://github.com/user-attachments/assets/dab5b215-2daf-471d-aef3-d6defe496d0c)
+
+**Addiitional commands to include in new added .lef to OpenLANE flow merged.lef**
+```tcl
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+```
+
+**Set new value for SYNTH_SIZING**
+```tcl
+set ::env(SYNTH_SIZING) 1
+```
+
+**Create New pre_sta.conf for STA analysis in openlane directory**
+![VirtualBox_vsdworkshop_30_09_2024_23_45_22](https://github.com/user-attachments/assets/89a40732-cb35-4c03-9499-67a8c2e46904)
+
+**Create New my_base.sdc for STA analysis in openlane/designs/picorv32a/src directory based on the file openlane/scripts/base.sdc**
+
+![VirtualBox_vsdworkshop_30_09_2024_21_50_05](https://github.com/user-attachments/assets/b04462f8-d80d-4896-a52e-69b1bb8083b8)
+
+![VirtualBox_vsdworkshop_30_09_2024_23_59_25](https://github.com/user-attachments/assets/295085a3-ca98-4ebb-87f7-2f97e0dbeb8e)
+
+**Running Synthesis**
+```tcl
+run_synthesis
+```
+![VirtualBox_vsdworkshop_30_09_2024_20_40_32](https://github.com/user-attachments/assets/1318cc86-9812-4caf-af80-e7e2252a3b79)
+
+To fix this slack we use:
+**prep design so as to update variables**
+```tcl
+prep -design picorv32a -tag 24-03_10-03 -overwrite
+```
+
+**Addiitional commands to include in new added .lef to OpenLANE flow merged.lef**
+```tcl
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+```
+
+**Display current value of variable SYNTH_STRATEGY**
+```tcl
+echo $::env(SYNTH_STRATEGY)
+```
+
+**Set new value for SYNTH_STRATEGY**
+```tcl
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+```
+
+**Display current value of variable SYNTH_BUFFERING to check whether it's enabled**
+```tcl
+echo $::env(SYNTH_BUFFERING)
+```
+
+**Display current value of variable SYNTH_SIZING**
+```tcl
+echo $::env(SYNTH_SIZING)
+```
+
+**Set new value for SYNTH_SIZING**
+```tcl
+set ::env(SYNTH_SIZING) 1
+```
+
+**Display current value of variable SYNTH_DRIVING_CELL to check whether it's the proper cell or not**
+```tcl
+echo $::env(SYNTH_DRIVING_CELL)
+```
+
+**Running synthesis**
+run_synthesis
+
+**When the slack has met**
+
+**Running Placement**
+```tcl
+run_placement
+```
+![VirtualBox_vsdworkshop_30_09_2024_19_27_29](https://github.com/user-attachments/assets/79ff607f-18ca-41b3-8adb-b517f72375d0)
 
 ## 5. Final Steps for RTL2GDS using triton Route and openSta
 
 ### Lab Implementation:
 
-**Objective :** 
+**Objective :** TO run the following tasks:
+1. Generate Power Distribution Network (PDN) and load the layout.
+2. Perform detailed routing using TritonRoute
 
 
 **Invoking the Openlane flow using picorv32a :**
