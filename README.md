@@ -832,25 +832,88 @@ run_synthesis
 ```
 ![VirtualBox_vsdworkshop_30_09_2024_14_44_03](https://github.com/user-attachments/assets/4ab41e94-a38a-4a56-b678-ee498cfe08da)
 
+
+**Note down current design values generated before modifying parameters to improve timing and chip area**
 ![VirtualBox_vsdworkshop_30_09_2024_14_51_17](https://github.com/user-attachments/assets/884dbab3-465f-4a17-bd13-7cc99cb34f12)
 
 ![VirtualBox_vsdworkshop_30_09_2024_14_53_22](https://github.com/user-attachments/assets/fd6b19a1-0318-4ce6-a593-eb180679a92e)
 
-**Running floorplan**
+**Change the directory path to README.md**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane/configuration
+```
+![VirtualBox_vsdworkshop_30_09_2024_15_00_08](https://github.com/user-attachments/assets/9acc5dd2-059d-4759-92a1-2db9bcd46e1d)
+
+Screenshot of the README.md:
+![VirtualBox_vsdworkshop_30_09_2024_15_00_17](https://github.com/user-attachments/assets/bb86141e-b2c7-4df3-8851-f4e2d1a699b2)
+
+
+**prep design so as to update variables**
 ```tcl
-run_floorplan
+prep -design picorv32a -tag 24-03_10-03 -overwrite
+```
+![VirtualBox_vsdworkshop_30_09_2024_15_17_46](https://github.com/user-attachments/assets/253ea57a-723d-4cad-a141-9cc1eea6549d)
+
+**Addiitional commands to include in new added .lef to OpenLANE flow merged.lef**
+```tcl
+set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
+add_lefs -src $lefs
+```
+![VirtualBox_vsdworkshop_30_09_2024_18_39_28](https://github.com/user-attachments/assets/90afd8ca-d8d1-45bf-97c8-49c1b61140b8)
+
+**Display current value of variable SYNTH_STRATEGY**
+```tcl
+echo $::env(SYNTH_STRATEGY)
 ```
 
+**Set new value for SYNTH_STRATEGY**
+```tcl
+set ::env(SYNTH_STRATEGY) "DELAY 3"
+```
 
+**Display current value of variable SYNTH_BUFFERING to check whether it's enabled**
+```tcl
+echo $::env(SYNTH_BUFFERING)
+```
 
+**Display current value of variable SYNTH_SIZING**
+```tcl
+echo $::env(SYNTH_SIZING)
+```
 
+**Set new value for SYNTH_SIZING**
+```tcl
+set ::env(SYNTH_SIZING) 1
+```
 
+**Display current value of variable SYNTH_DRIVING_CELL to check whether it's the proper cell or not**
+```tcl
+echo $::env(SYNTH_DRIVING_CELL)
+```
 
+**Running synthesis**
+```tcl
+run_synthesis
+```
+![VirtualBox_vsdworkshop_30_09_2024_15_27_05](https://github.com/user-attachments/assets/53d88df8-3f9c-4341-92d2-6bf16e3178b5)
 
+![VirtualBox_vsdworkshop_30_09_2024_18_55_10](https://github.com/user-attachments/assets/1b38f34c-adaa-40e1-8f06-9b37dbd3e359)
 
+![VirtualBox_vsdworkshop_30_09_2024_18_58_56](https://github.com/user-attachments/assets/40d00457-f554-4ed5-9314-7a297410ad4a)
 
+![VirtualBox_vsdworkshop_30_09_2024_18_59_07](https://github.com/user-attachments/assets/36ec588b-0143-4771-b359-3a586326f0e7)
 
+![VirtualBox_vsdworkshop_30_09_2024_19_04_21](https://github.com/user-attachments/assets/897f6f8d-a6e3-4b1b-8854-9ac47a9ea2fe)
 
+![VirtualBox_vsdworkshop_30_09_2024_19_10_48](https://github.com/user-attachments/assets/08291439-90e5-4d85-90e7-386baa79d111)
+
+![VirtualBox_vsdworkshop_30_09_2024_19_11_08](https://github.com/user-attachments/assets/c7f5175c-e3c4-4905-8ffe-7aa21d272062)
+
+![VirtualBox_vsdworkshop_30_09_2024_19_11_31](https://github.com/user-attachments/assets/27e6beae-7b50-45ff-8488-8c79d42e8906)
+
+![VirtualBox_vsdworkshop_30_09_2024_19_12_46](https://github.com/user-attachments/assets/6d842d23-3cc9-4d9d-949c-284ed5b33288)
+
+![VirtualBox_vsdworkshop_30_09_2024_19_15_02](https://github.com/user-attachments/assets/be57b2b2-6a36-4c84-83cd-0722df2f8d67)
 
 
 
