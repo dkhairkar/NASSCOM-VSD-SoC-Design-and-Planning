@@ -1026,21 +1026,22 @@ cp picorv32a.synthesis.v picorv32a.synthesis_old.v
 ![VirtualBox_vsdworkshop_01_10_2024_01_22_34](https://github.com/user-attachments/assets/e35cd3fe-9b1b-4895-9dbd-f3f83cbacc93)
 
 **Writing the verilog file**
-```bash
+```tcl
 help write_verilog
 ```
 
 **Overwriting current synthesis netlist**
-```bash
+```tcl
 write_verilog /home/vsduser/Desktop/work/tools/openlane_working_dir/openlane/designs/picorv32a/runs/30-09_19-04/results/synthesis/picorv32a.synthesis.v
 ```
 
 
 **Exit from OpenSTA since timing analysis is done**
-``bash
+``tcl
 exit
 ```
-![VirtualBox_vsdworkshop_01_10_2024_01_14_55](https://github.com/user-attachments/assets/9cd4cb37-c152-44e2-8d62-c6f19ee140ea)
+![VirtualBox_vsdworkshop_01_10_2024_01_14_55](https://github.com/user-attachments/assets/7f945541-b74f-45b0-9b4c-1c40d6c5d38a)
+
 
 
 ![VirtualBox_vsdworkshop_01_10_2024_01_48_56](https://github.com/user-attachments/assets/f7fab771-b92d-4ba5-94e5-264992bd0bd1)
