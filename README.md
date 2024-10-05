@@ -850,58 +850,85 @@ run_synthesis
 
 ![VirtualBox_vsdworkshop_30_09_2024_23_59_25](https://github.com/user-attachments/assets/295085a3-ca98-4ebb-87f7-2f97e0dbeb8e)
 
-To fix this slack we use:
-**prep design so as to update variables**
+
+**Run another terminal**
+
+**Change directory to Openlane**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane
+```
+
+**Invoke OpenSta tool with script**
+```bash
+sta pre_sta.conf
+```
+![VirtualBox_vsdworkshop_01_10_2024_00_11_46](https://github.com/user-attachments/assets/364b3031-2290-438a-98b5-90a21232f230)
+![VirtualBox_vsdworkshop_01_10_2024_00_11_56](https://github.com/user-attachments/assets/876cd142-3f65-41f5-9e9e-863310e4b9a8)
+![VirtualBox_vsdworkshop_01_10_2024_00_12_05](https://github.com/user-attachments/assets/4da97181-f4d9-4d47-bfe7-27903feca762)
+![VirtualBox_vsdworkshop_01_10_2024_00_12_14](https://github.com/user-attachments/assets/fe160329-fc57-424c-92f7-a60d87223a6b)
+
+Since more fanout is causing more delay we can add parameter to reduce fanout and do synthesis again
+
+**Commands to include new lef and perform synthesis**
+
+**OpenLANE flow is ready to run any design and initially we have to prep the design creating some necessary files and directories for running a specific design which in our case is 'picorv32a'**
 ```tcl
 prep -design picorv32a -tag 30-09_19-04 -overwrite
 ```
 
-**Addiitional commands to include in new added .lef to OpenLANE flow merged.lef**
+**Adiitional commands to include newly added lef to openlane flow**
 ```tcl
 set lefs [glob $::env(DESIGN_DIR)/src/*.lef]
 add_lefs -src $lefs
 ```
 
-**Display current value of variable SYNTH_STRATEGY**
-```tcl
-echo $::env(SYNTH_STRATEGY)
-```
-
-**Set new value for SYNTH_STRATEGY**
-```tcl
-set ::env(SYNTH_STRATEGY) "DELAY 3"
-```
-
-**Display current value of variable SYNTH_BUFFERING to check whether it's enabled**
-```tcl
-echo $::env(SYNTH_BUFFERING)
-```
-
-**Display current value of variable SYNTH_SIZING**
-```tcl
-echo $::env(SYNTH_SIZING)
-```
-
-**Set new value for SYNTH_SIZING**
+**set new value for SYNTH_SIZING**
 ```tcl
 set ::env(SYNTH_SIZING) 1
 ```
 
-**Display current value of variable SYNTH_DRIVING_CELL to check whether it's the proper cell or not**
+**set new value for SYNTH_MAX_FANOUT**
+```tcl
+set ::env(SYNTH_MAX_FANOUT) 4
+```
+
+**display current value of variable SYNTH_DRIVING_CELL to check whether it's the proper cell or not**
 ```tcl
 echo $::env(SYNTH_DRIVING_CELL)
 ```
 
-**Running synthesis**
-run_synthesis
-
-**When the slack has met**
-
-**Running Placement**
+**Running Synthesis**
 ```tcl
-run_placement
+run_synthesis
 ```
-![VirtualBox_vsdworkshop_30_09_2024_19_27_29](https://github.com/user-attachments/assets/79ff607f-18ca-41b3-8adb-b517f72375d0)
+![VirtualBox_vsdworkshop_01_10_2024_00_45_24](https://github.com/user-attachments/assets/7b2effa0-e4b4-446f-8126-811e7cdf464f)
+![VirtualBox_vsdworkshop_01_10_2024_00_48_20](https://github.com/user-attachments/assets/4a639493-2ed8-48cc-a64c-ea191c5b46d8)
+![VirtualBox_vsdworkshop_01_10_2024_00_51_05](https://github.com/user-attachments/assets/22817df3-f5c2-4481-ba41-89cc383227ef)
+
+
+**Run another terminal**
+
+**Change directory to Openlane**
+```bash
+cd Desktop/work/tools/openlane_working_dir/openlane
+```
+
+**Invoke OpenSta tool with script**
+```bash
+sta pre_sta.conf
+```
+![VirtualBox_vsdworkshop_01_10_2024_00_51_36](https://github.com/user-attachments/assets/e0afe667-7fd0-462d-8ad5-360c96e19615)
+![VirtualBox_vsdworkshop_01_10_2024_00_52_18](https://github.com/user-attachments/assets/55203898-0602-41a9-8361-7987147c2c66)
+![VirtualBox_vsdworkshop_01_10_2024_00_55_59](https://github.com/user-attachments/assets/50402ab4-e35a-4251-9a16-b03d691778d2)
+
+**Result: Slack is reduced
+
+![VirtualBox_vsdworkshop_01_10_2024_00_56_11](https://github.com/user-attachments/assets/459a2047-17a2-46f5-a236-c08b93cbea80)
+
+
+
+
+
 
 ## 5. Final Steps for RTL2GDS using triton Route and openSta
 
